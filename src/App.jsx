@@ -32,50 +32,64 @@ export default function App() {
   const [loadProgress, setLoadProgress] = useState(0);
   const [loadingText, setLoadingText] = useState("");
 
-  // Asynchronous dynamic loading of all datasets inside a useEffect
+  // Asynchronous dynamic loading of all datasets with smooth progression tracking
   useEffect(() => {
-    const startTime = Date.now();
-    let loaded = 0;
-    const total = 6;
+    let progressTimer;
+    let dataLoaded = false;
+    let loadedDataPayload = null;
 
-    const incrementProgress = () => {
-      loaded += 1;
-      setLoadProgress(Math.round((loaded / total) * 100));
+    // 1. Start loading data asynchronously
+    Promise.all([
+      import("./data/ar.json").then((res) => res.default),
+      import("./data/en.json").then((res) => res.default),
+      import("./data/plans.json").then((res) => res.default),
+      import("./data/stories.json").then((res) => res.default),
+      import("./data/useCases.json").then((res) => res.default),
+      import("./data/tutorials.json").then((res) => res.default),
+    ]).then(([ar, en, plans, stories, useCases, tutorials]) => {
+      loadedDataPayload = {
+        translationsAr: ar,
+        translationsEn: en,
+        plans: plans,
+        stories: stories,
+        useCases: useCases,
+        tutorials: tutorials
+      };
+      dataLoaded = true;
+    }).catch(err => {
+      console.error("Critical: Failed to load application data:", err);
+      // Fallback flag so we don't block the user
+      dataLoaded = true;
+    });
+
+    // 2. Animate progress bar smoothly, checking every 30ms
+    progressTimer = setInterval(() => {
+      setLoadProgress((prev) => {
+        if (prev < 90) {
+          // Normal smooth loading animation increments (takes ~1.2s to reach 90%)
+          return prev + Math.floor(Math.random() * 3) + 1; // Increment by 1-3%
+        } else if (dataLoaded) {
+          // Data has successfully loaded, accelerate completion to 100%
+          if (prev >= 100) {
+            clearInterval(progressTimer);
+            if (loadedDataPayload) {
+              setData(loadedDataPayload);
+            }
+            setTimeout(() => {
+              setIsLoading(false);
+            }, 100); // 100ms finish delay for transition smoothness
+            return 100;
+          }
+          return prev + 5; // Accelerate increments by 5%
+        }
+        // If data is still loading, hold at 90%
+        return 90;
+      });
+    }, 30);
+
+    return () => {
+      if (progressTimer) clearInterval(progressTimer);
     };
-
-    const loadData = async () => {
-      try {
-        const [ar, en, plans, stories, useCases, tutorials] = await Promise.all([
-          import("./data/ar.json").then((res) => { incrementProgress(); return res.default; }),
-          import("./data/en.json").then((res) => { incrementProgress(); return res.default; }),
-          import("./data/plans.json").then((res) => { incrementProgress(); return res.default; }),
-          import("./data/stories.json").then((res) => { incrementProgress(); return res.default; }),
-          import("./data/useCases.json").then((res) => { incrementProgress(); return res.default; }),
-          import("./data/tutorials.json").then((res) => { incrementProgress(); return res.default; }),
-        ]);
-
-        setData({
-          translationsAr: ar,
-          translationsEn: en,
-          plans: plans,
-          stories: stories,
-          useCases: useCases,
-          tutorials: tutorials
-        });
-
-        // Minimum 1.5 seconds loading presentation
-        const elapsed = Date.now() - startTime;
-        const delay = Math.max(0, 1500 - elapsed);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, delay);
-      } catch (err) {
-        console.error("Critical: Failed to load application data:", err);
-        setIsLoading(false);
-      }
-    };
-
-    loadData();
   }, []);
 
   // Update localized text description based on percentage loaded
