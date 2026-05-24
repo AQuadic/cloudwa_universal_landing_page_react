@@ -12,6 +12,13 @@ import Footer from "./components/Footer";
 import Customers from "./components/Customers";
 import Tutorials from "./components/Tutorials";
 import MessageTypes from "./components/MessageTypes";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsConditions from "./components/TermsConditions";
+import RefundPolicy from "./components/RefundPolicy";
+import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
+import Affiliate from "./components/Affiliate";
+import Changelog from "./components/Changelog";
 import { HelpCircle, ChevronDown, ChevronUp, X, MessageSquare } from "lucide-react";
 
 export default function App() {
@@ -116,6 +123,13 @@ export default function App() {
     if (hash === "#stories") return "customers";
     if (hash === "#tutorials") return "tutorials";
     if (hash === "#message-types") return "message-types";
+    if (hash === "#privacy") return "privacy";
+    if (hash === "#terms") return "terms";
+    if (hash === "#refund") return "refund";
+    if (hash === "#about") return "about";
+    if (hash === "#contact") return "contact";
+    if (hash === "#affiliate") return "affiliate";
+    if (hash === "#changelog") return "changelog";
     return "home";
   });
 
@@ -402,10 +416,18 @@ export default function App() {
           </div>
         )}
 
+        {currentPage === "privacy" && <PrivacyPolicy lang={lang} />}
+        {currentPage === "terms" && <TermsConditions lang={lang} />}
+        {currentPage === "refund" && <RefundPolicy lang={lang} />}
+        {currentPage === "about" && <AboutUs lang={lang} />}
+        {currentPage === "contact" && <ContactUs lang={lang} />}
+        {currentPage === "affiliate" && <Affiliate lang={lang} />}
+        {currentPage === "changelog" && <Changelog lang={lang} />}
+
       </main>
 
       {/* Footer */}
-      <Footer lang={lang} t={t} />
+      <Footer lang={lang} t={t} setCurrentPage={setCurrentPage} />
 
       {/* Floating WhatsApp Chathead */}
       <div className={`fixed bottom-6 ${lang === "ar" ? "left-6" : "right-6"} z-40 flex flex-col items-end gap-2 group`}>

@@ -1,7 +1,16 @@
 import React from "react";
 import { MessageSquare, ShieldCheck, Zap } from "lucide-react";
 
-export default function Footer({ lang, t }) {
+export default function Footer({ lang, t, setCurrentPage }) {
+  const isAr = lang === "ar";
+
+  const navigate = (e, page, hash) => {
+    e.preventDefault();
+    if (setCurrentPage) setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (hash) window.location.hash = hash;
+  };
+
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white pt-16 pb-12 transition-theme border-t border-gray-200 dark:border-gray-800">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -9,7 +18,7 @@ export default function Footer({ lang, t }) {
           
           {/* Logo & description column */}
           <div className="md:col-span-4 flex flex-col items-start gap-4">
-            <a href="#hero" className="flex items-center gap-3">
+            <a href="#home" onClick={(e) => navigate(e, "home", "")} className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-brand-purple to-brand-green text-white">
                 <MessageSquare className="h-5 w-5" />
               </div>
@@ -22,10 +31,33 @@ export default function Footer({ lang, t }) {
             </p>
           </div>
 
+          {/* Company Column */}
+          <div className="md:col-span-2 flex flex-col items-start gap-3 text-start">
+            <h4 className="text-sm font-bold font-alexandria text-gray-800 dark:text-white uppercase tracking-wider">
+              {isAr ? "الشركة" : "Company"}
+            </h4>
+            <a href="#about" onClick={(e) => navigate(e, "about", "#about")}
+              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria cursor-pointer">
+              {isAr ? "من نحن" : "About Us"}
+            </a>
+            <a href="#changelog" onClick={(e) => navigate(e, "changelog", "#changelog")}
+              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria cursor-pointer">
+              {isAr ? "آخر التحديثات" : "Changelog"}
+            </a>
+            <a href="#affiliate" onClick={(e) => navigate(e, "affiliate", "#affiliate")}
+              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria cursor-pointer">
+              {isAr ? "برنامج الإحالة" : "Affiliate Program"}
+            </a>
+            <a href="#contact" onClick={(e) => navigate(e, "contact", "#contact")}
+              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria cursor-pointer">
+              {isAr ? "تواصل معنا" : "Contact Us"}
+            </a>
+          </div>
+
           {/* CloudWA Portals Column */}
           <div className="md:col-span-2 flex flex-col items-start gap-3 text-start">
             <h4 className="text-sm font-bold font-alexandria text-gray-800 dark:text-white uppercase tracking-wider">
-              {lang === "ar" ? "بوابات الخدمة" : "CloudWA Portals"}
+              {isAr ? "بوابات الخدمة" : "CloudWA Portals"}
             </h4>
             <a
               href="https://cloudwa.net/console/login"
@@ -33,7 +65,7 @@ export default function Footer({ lang, t }) {
               rel="noopener noreferrer"
               className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
             >
-              {lang === "ar" ? "بوابة الويب الاقتصادية" : "Web Budget Portal"}
+              {isAr ? "بوابة الويب الاقتصادية" : "Web Budget Portal"}
             </a>
             <a
               href="https://calendly.com/aquadicsoftwares/30min"
@@ -41,32 +73,33 @@ export default function Footer({ lang, t }) {
               rel="noopener noreferrer"
               className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
             >
-              {lang === "ar" ? "بوابة الـ API الرسمية" : "Official Meta Portal"}
+              {isAr ? "بوابة الـ API الرسمية" : "Official Meta Portal"}
             </a>
           </div>
 
-          {/* Aquadic Products Column */}
-          <div className="md:col-span-3 flex flex-col items-start gap-3 text-start">
+          {/* Legal Column */}
+          <div className="md:col-span-2 flex flex-col items-start gap-3 text-start">
             <h4 className="text-sm font-bold font-alexandria text-gray-800 dark:text-white uppercase tracking-wider">
-              {t.footer.productsTitle || (lang === "ar" ? "منتجات أكوادك" : "Aquadic Products")}
+              {isAr ? "القانوني" : "Legal"}
             </h4>
-            {(t.footer.products || []).map((product, idx) => (
-              <a
-                key={idx}
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
-              >
-                {product.name}
-              </a>
-            ))}
+            <a href="#privacy" onClick={(e) => navigate(e, "privacy", "#privacy")}
+              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria cursor-pointer">
+              {isAr ? "سياسة الخصوصية" : "Privacy Policy"}
+            </a>
+            <a href="#terms" onClick={(e) => navigate(e, "terms", "#terms")}
+              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria cursor-pointer">
+              {isAr ? "الشروط والأحكام" : "Terms & Conditions"}
+            </a>
+            <a href="#refund" onClick={(e) => navigate(e, "refund", "#refund")}
+              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria cursor-pointer">
+              {isAr ? "سياسة الاسترداد" : "Refund Policy"}
+            </a>
           </div>
 
           {/* Verification Badges Column */}
-          <div className="md:col-span-3 flex flex-col items-start gap-4">
+          <div className="md:col-span-2 flex flex-col items-start gap-4">
             <h4 className="text-sm font-bold font-alexandria text-gray-800 dark:text-white uppercase tracking-wider">
-              {lang === "ar" ? "الاعتمادات" : "Credentials"}
+              {isAr ? "الاعتمادات" : "Credentials"}
             </h4>
             <div className="flex items-center gap-2.5 rounded-xl bg-gray-200/60 dark:bg-white/5 border border-gray-300/50 dark:border-white/10 px-4 py-2.5 w-full">
               <ShieldCheck className="h-5 w-5 text-emerald-500 dark:text-emerald-400 shrink-0" />
@@ -98,4 +131,3 @@ export default function Footer({ lang, t }) {
     </footer>
   );
 }
-

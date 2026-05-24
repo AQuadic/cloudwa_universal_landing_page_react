@@ -12,39 +12,36 @@ export default function Header({ lang, setLang, theme, setTheme, t, currentPage,
 
   const menuItems = [
     { id: "home", label: lang === "ar" ? "الرئيسية" : "Home" },
-    { id: "problem", label: t.nav.problem },
     { id: "message-types", label: lang === "ar" ? "أنواع الرسائل" : "Message Types" },
     { id: "customers", label: lang === "ar" ? "قصص النجاح" : "Success Stories" },
     { id: "tutorials", label: lang === "ar" ? "الشروحات" : "Tutorials" },
-    { id: "calculator", label: t.nav.calculator },
     { id: "pricing", label: t.nav.pricing },
-    { id: "faq", label: t.nav.faq },
+    { id: "about", label: lang === "ar" ? "من نحن" : "About" },
+    { id: "affiliate", label: lang === "ar" ? "شراكة" : "Affiliate" },
+    { id: "contact", label: lang === "ar" ? "تواصل" : "Contact" },
   ];
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
-    if (id === "home") {
-      setCurrentPage("home");
+    // Pages that are standalone routes
+    const pageRoutes = {
+      "home": { page: "home", hash: "" },
+      "message-types": { page: "message-types", hash: "#message-types" },
+      "customers": { page: "customers", hash: "#stories" },
+      "tutorials": { page: "tutorials", hash: "#tutorials" },
+      "privacy": { page: "privacy", hash: "#privacy" },
+      "terms": { page: "terms", hash: "#terms" },
+      "refund": { page: "refund", hash: "#refund" },
+      "about": { page: "about", hash: "#about" },
+      "contact": { page: "contact", hash: "#contact" },
+      "affiliate": { page: "affiliate", hash: "#affiliate" },
+      "changelog": { page: "changelog", hash: "#changelog" },
+    };
+
+    if (pageRoutes[id]) {
+      setCurrentPage(pageRoutes[id].page);
       window.scrollTo({ top: 0, behavior: "smooth" });
-      window.location.hash = "";
-      return;
-    }
-    if (id === "message-types") {
-      setCurrentPage("message-types");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.location.hash = "#message-types";
-      return;
-    }
-    if (id === "customers") {
-      setCurrentPage("customers");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.location.hash = "#stories";
-      return;
-    }
-    if (id === "tutorials") {
-      setCurrentPage("tutorials");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.location.hash = "#tutorials";
+      window.location.hash = pageRoutes[id].hash;
       return;
     }
 
@@ -83,7 +80,10 @@ export default function Header({ lang, setLang, theme, setTheme, t, currentPage,
               (item.id === "home" && currentPage === "home") ||
               (item.id === "customers" && currentPage === "customers") ||
               (item.id === "message-types" && currentPage === "message-types") ||
-              (item.id === "tutorials" && currentPage === "tutorials");
+              (item.id === "tutorials" && currentPage === "tutorials") ||
+              (item.id === "about" && currentPage === "about") ||
+              (item.id === "contact" && currentPage === "contact") ||
+              (item.id === "affiliate" && currentPage === "affiliate");
               
             return (
               <a
