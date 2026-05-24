@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* 
+  Force class-based dark mode (ignore OS system setting).
+  Without this, Tailwind v4 uses @media prefers-color-scheme by default,
+  which means dark: classes apply based on the OS — not our .dark class toggle.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+
 @theme {
   --font-alexandria: "Alexandria", sans-serif;
   --font-cairo: "Cairo", sans-serif;
