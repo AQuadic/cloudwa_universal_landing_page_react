@@ -5,7 +5,7 @@ export default function Developer({ lang, t }) {
   const isAr = lang === "ar";
   
   return (
-    <section id="developer" className="py-20 bg-gray-55/30 dark:bg-gray-950/20 transition-theme border-y border-gray-200/50 dark:border-gray-800/50">
+    <section id="developer" className="py-20 bg-gray-50/60 dark:bg-gray-950/20 transition-theme border-y border-gray-200/50 dark:border-gray-800/50">
       <div className="mx-auto max-w-4xl px-6 text-center">
         
         {/* Glowing Centered Icon */}

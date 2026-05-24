@@ -8,7 +8,7 @@ export default function Pricing({ lang, t, plansData }) {
   const plans = activeTab === "official" ? plansData.officialPlans : plansData.unofficialPlans;
 
   return (
-    <section id="pricing" className="py-20 bg-gray-55/30 dark:bg-gray-950/20 transition-theme">
+    <section id="pricing" className="py-20 bg-gray-50/60 dark:bg-gray-950/20 transition-theme">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         
         {/* Title */}

@@ -48,7 +48,7 @@ export default function Hero({ lang, t }) {
   }, [activeTab, lang]);
 
   return (
-    <section id="hero" className="relative overflow-hidden bg-gray-55/30 dark:bg-gray-950/20 pt-10 pb-20">
+    <section id="hero" className="relative overflow-hidden bg-gray-50/60 dark:bg-gray-950/20 pt-10 pb-20">
       {/* Background Blobs */}
       <div className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-30">
         <div className={`absolute top-12 left-10 w-96 h-96 rounded-full blur-3xl transition-colors duration-1000 ${
@@ -189,7 +189,7 @@ export default function Hero({ lang, t }) {
               </div>
 
               {/* Chat Body */}
-              <div className="p-4 h-[380px] overflow-y-auto flex flex-col gap-3 justify-end bg-gray-100 dark:bg-gray-900/50">
+              <div className="p-4 h-[380px] overflow-y-auto flex flex-col gap-3 justify-end bg-gray-50 dark:bg-gray-900/50">
                 {chatMessages.map((msg) => (
                   <div
                     key={msg.id}

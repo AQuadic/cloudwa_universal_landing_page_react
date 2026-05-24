@@ -224,12 +224,12 @@ export default function Calculator({ lang, t }) {
           </div>
 
           {/* Right Results Panel */}
-          <div className="lg:col-span-5 rounded-3xl bg-gradient-to-br from-gray-900 to-gray-950 text-white p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+          <div className="lg:col-span-5 rounded-3xl bg-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-950 border border-gray-800 dark:border-0 p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
             {/* Background design elements */}
             <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-brand-purple/20 blur-xl pointer-events-none" />
             
             <div className="relative z-10">
-              <h3 className="text-lg font-bold font-alexandria text-white border-b border-gray-800 pb-4 mb-6">
+              <h3 className="text-lg font-bold font-alexandria text-white border-b border-gray-700 pb-4 mb-6">
                 {lang === "ar" ? "تحليل التكاليف الشهري مع CloudWA" : "CloudWA Monthly Cost Analysis"}
               </h3>
 
@@ -243,7 +243,7 @@ export default function Calculator({ lang, t }) {
                   <span>{t.calculator.cloudwaSub}</span>
                   <span className="font-outfit font-bold text-white">$35.00</span>
                 </div>
-                <div className="flex justify-between items-center text-lg font-alexandria font-black border-t border-dashed border-gray-800 pt-4 mt-2">
+                <div className="flex justify-between items-center text-lg font-alexandria font-black border-t border-dashed border-gray-700 pt-4 mt-2">
                   <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
                     {t.calculator.totalCloudwa}
                   </span>
@@ -252,7 +252,7 @@ export default function Calculator({ lang, t }) {
               </div>
 
               {/* Competitors Comparison Box */}
-              <div className="rounded-2xl border border-gray-800/80 bg-white/5 p-5 mb-8">
+              <div className="rounded-2xl border border-gray-700/80 bg-white/5 p-5 mb-8">
                 <h4 className="text-xs font-bold font-alexandria text-gray-400 mb-4">
                   {t.calculator.competitorCost}
                 </h4>
@@ -265,8 +265,8 @@ export default function Calculator({ lang, t }) {
                     <span>{t.calculator.competitorMarkup}</span>
                     <span className="font-outfit font-semibold text-white">${competitorMarkup.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between items-center text-sm font-alexandria font-bold border-t border-gray-800 pt-3 mt-1 text-rose-450">
-                    <span>{t.calculator.totalCompetitor}</span>
+                  <div className="flex justify-between items-center text-sm font-alexandria font-bold border-t border-gray-700 pt-3 mt-1">
+                    <span className="text-gray-300">{t.calculator.totalCompetitor}</span>
                     <span className="font-outfit font-extrabold text-lg text-rose-500">${competitorTotal.toFixed(2)}</span>
                   </div>
                 </div>
@@ -277,7 +277,7 @@ export default function Calculator({ lang, t }) {
                 <span className="text-xs font-bold font-alexandria text-emerald-400 block mb-1">
                   {t.calculator.savings}
                 </span>
-                <span className="text-3xl font-black font-outfit text-emerald-450">
+                <span className="text-3xl font-black font-outfit text-emerald-400">
                   ${monthlySavings.toFixed(2)}
                 </span>
               </div>
@@ -290,7 +290,7 @@ export default function Calculator({ lang, t }) {
               >
                 {t.calculator.cta}
               </a>
-              <span className="block text-[9px] text-gray-500 dark:text-gray-400 font-alexandria text-center mt-3 leading-relaxed">
+              <span className="block text-[9px] text-gray-400 font-alexandria text-center mt-3 leading-relaxed">
                 {t.calculator.disclaimer}
               </span>
             </div>
