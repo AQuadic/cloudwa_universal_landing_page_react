@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import translationsAr from "./data/ar.json";
-import translationsEn from "./data/en.json";
-const translations = { ar: translationsAr, en: translationsEn };
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
@@ -15,7 +12,6 @@ import Footer from "./components/Footer";
 import Customers from "./components/Customers";
 import Tutorials from "./components/Tutorials";
 import { HelpCircle, ChevronDown, ChevronUp, X, MessageSquare } from "lucide-react";
-import plansData from "./data/plans.json";
 
 export default function App() {
   const [lang, setLang] = useState("ar"); // Default to Arabic ('ar') or English ('en')
@@ -24,13 +20,80 @@ export default function App() {
   const [showPromo, setShowPromo] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulated database / JSON data fetch loader
+  // States to hold dynamically loaded JSON datasets
+  const [data, setData] = useState({
+    translationsAr: null,
+    translationsEn: null,
+    plans: null,
+    stories: null,
+    useCases: null,
+    tutorials: null
+  });
+  const [loadProgress, setLoadProgress] = useState(0);
+  const [loadingText, setLoadingText] = useState("");
+
+  // Asynchronous dynamic loading of all datasets inside a useEffect
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500); // 1.5 seconds loading screen
-    return () => clearTimeout(timer);
+    const startTime = Date.now();
+    let loaded = 0;
+    const total = 6;
+
+    const incrementProgress = () => {
+      loaded += 1;
+      setLoadProgress(Math.round((loaded / total) * 100));
+    };
+
+    const loadData = async () => {
+      try {
+        const [ar, en, plans, stories, useCases, tutorials] = await Promise.all([
+          import("./data/ar.json").then((res) => { incrementProgress(); return res.default; }),
+          import("./data/en.json").then((res) => { incrementProgress(); return res.default; }),
+          import("./data/plans.json").then((res) => { incrementProgress(); return res.default; }),
+          import("./data/stories.json").then((res) => { incrementProgress(); return res.default; }),
+          import("./data/useCases.json").then((res) => { incrementProgress(); return res.default; }),
+          import("./data/tutorials.json").then((res) => { incrementProgress(); return res.default; }),
+        ]);
+
+        setData({
+          translationsAr: ar,
+          translationsEn: en,
+          plans: plans,
+          stories: stories,
+          useCases: useCases,
+          tutorials: tutorials
+        });
+
+        // Minimum 1.5 seconds loading presentation
+        const elapsed = Date.now() - startTime;
+        const delay = Math.max(0, 1500 - elapsed);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, delay);
+      } catch (err) {
+        console.error("Critical: Failed to load application data:", err);
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
   }, []);
+
+  // Update localized text description based on percentage loaded
+  useEffect(() => {
+    if (loadProgress < 20) {
+      setLoadingText(lang === "ar" ? "تهيئة النظام وقراءة الإعدادات..." : "Initializing system & reading config...");
+    } else if (loadProgress < 40) {
+      setLoadingText(lang === "ar" ? "تحميل اللغات وقواعد البيانات الفورية..." : "Loading languages & translations...");
+    } else if (loadProgress < 60) {
+      setLoadingText(lang === "ar" ? "تحميل باقات الاشتراك وتفاصيل الأسعار..." : "Loading plans & subscription pricing...");
+    } else if (loadProgress < 80) {
+      setLoadingText(lang === "ar" ? "تحميل قصص النجاح وقائمة الشركاء..." : "Loading customer stories & partners...");
+    } else if (loadProgress < 100) {
+      setLoadingText(lang === "ar" ? "تحميل مركز التعليم وشروحات الربط للبرمجة..." : "Loading integration docs & developer tutorials...");
+    } else {
+      setLoadingText(lang === "ar" ? "اكتمل التحميل بنجاح! جاري توجيهك..." : "Load complete! Directing you...");
+    }
+  }, [loadProgress, lang]);
   
   // Initialize route from hash for direct links and bookmarks
   const [currentPage, setCurrentPage] = useState(() => {
@@ -40,8 +103,12 @@ export default function App() {
     return "home";
   });
 
-  // Sync translation dictionary
-  const t = translations[lang];
+  // Sync translation dictionary with fallback
+  const translations = data.translationsAr && data.translationsEn
+    ? { ar: data.translationsAr, en: data.translationsEn }
+    : null;
+
+  const t = translations ? translations[lang] : null;
 
   // Apply RTL direction, Dark mode, and dynamic SEO metadata
   useEffect(() => {
@@ -90,39 +157,42 @@ export default function App() {
       document.head.appendChild(schemaScript);
     }
 
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "CloudWA",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "description": lang === "ar"
-        ? "بوابة متكاملة لربط واتساب تدعم الربط الرسمي من ميتا وبوابة الربط الاقتصادي للمطورين وأصحاب المتاجر."
-        : "WhatsApp integration gateway offering official Meta Cloud API and budget-friendly web automation API.",
-      "url": "https://cloudwa.net",
-      "offers": [
-        ...plansData.officialPlans.map(plan => ({
-          "@type": "Offer",
-          "price": plan.price,
-          "priceCurrency": "USD",
-          "description": plan.name[lang]
-        })),
-        ...plansData.unofficialPlans.map(plan => ({
-          "@type": "Offer",
-          "price": plan.price,
-          "priceCurrency": "USD",
-          "description": plan.name[lang]
-        }))
-      ],
-      "creator": {
-        "@type": "Organization",
-        "name": "Aquadic Software",
-        "url": "https://aquadic.com"
-      }
-    };
+    const activePlans = data.plans;
+    if (activePlans) {
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CloudWA",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": lang === "ar"
+          ? "بوابة متكاملة لربط واتساب تدعم الربط الرسمي من ميتا وبوابة الربط الاقتصادي للمطورين وأصحاب المتاجر."
+          : "WhatsApp integration gateway offering official Meta Cloud API and budget-friendly web automation API.",
+        "url": "https://cloudwa.net",
+        "offers": [
+          ...activePlans.officialPlans.map(plan => ({
+            "@type": "Offer",
+            "price": plan.price,
+            "priceCurrency": "USD",
+            "description": plan.name[lang]
+          })),
+          ...activePlans.unofficialPlans.map(plan => ({
+            "@type": "Offer",
+            "price": plan.price,
+            "priceCurrency": "USD",
+            "description": plan.name[lang]
+          }))
+        ],
+        "creator": {
+          "@type": "Organization",
+          "name": "Aquadic Software",
+          "url": "https://aquadic.com"
+        }
+      };
 
-    schemaScript.textContent = JSON.stringify(schemaData, null, 2);
-  }, [lang, theme, currentPage]);
+      schemaScript.textContent = JSON.stringify(schemaData, null, 2);
+    }
+  }, [lang, theme, currentPage, data.plans]);
 
   const toggleFaq = (idx) => {
     setOpenFaqIdx(openFaqIdx === idx ? null : idx);
@@ -163,27 +233,40 @@ export default function App() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-brand-green/30 blur-3xl animate-pulse-glow" style={{ animationDelay: "1s" }} />
         </div>
 
-        {/* Pulse Branded Icon */}
-        <div className="relative flex items-center justify-center mb-6">
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-purple to-brand-green blur-md animate-pulse opacity-70" />
-          <div className="relative flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-tr from-brand-purple to-brand-green text-white shadow-2xl animate-floating">
-            <MessageSquare className="h-10 w-10 text-white" />
+        {/* Pulsing Branded Identity Icon */}
+        <div className="relative flex items-center justify-center mb-8">
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-purple to-brand-green blur-xl animate-pulse opacity-70 scale-110" />
+          <div className="relative flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-tr from-brand-purple to-brand-green text-white shadow-2xl animate-floating border border-white/10">
+            <MessageSquare className="h-12 w-12 text-white" />
           </div>
         </div>
 
         {/* Branded Text */}
-        <h2 className="text-2xl font-black tracking-tight mb-2 bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent font-outfit">
+        <h2 className="text-3xl font-black tracking-tight mb-1 bg-gradient-to-r from-white via-gray-150 to-gray-450 bg-clip-text text-transparent font-outfit">
           CloudWA
         </h2>
-        
-        {/* Sub text */}
-        <p className="text-xs font-bold text-gray-500 animate-pulse">
-          {lang === "ar" ? "جاري تحميل البوابة الموحدة..." : "Loading Unified Portal..."}
-        </p>
 
-        {/* Bouncing progress bar */}
-        <div className="mt-8 h-1.5 w-28 bg-gray-800 rounded-full overflow-hidden relative">
-          <div className="absolute inset-y-0 bg-gradient-to-r from-brand-purple to-brand-green rounded-full animate-bounce w-12" />
+        {/* Company Subtext */}
+        <p className="text-[10px] font-black tracking-widest text-gray-500 uppercase font-outfit mb-6">
+          Powered by Aquadic
+        </p>
+        
+        {/* Progress Text */}
+        <div className="flex flex-col items-center gap-1.5 mb-4">
+          <p className="text-xs font-bold text-gray-400 font-alexandria transition-all duration-300">
+            {loadingText}
+          </p>
+          <span className="text-[11px] font-black font-outfit text-brand-green tracking-wider bg-brand-green/10 px-2.5 py-0.5 rounded-full border border-brand-green/20">
+            {loadProgress}%
+          </span>
+        </div>
+
+        {/* Real Progress bar */}
+        <div className="h-2 w-48 bg-gray-900 rounded-full overflow-hidden border border-white/5 relative shadow-inner">
+          <div 
+            className="absolute inset-y-0 left-0 bg-gradient-to-r from-brand-purple via-brand-violet to-brand-green rounded-full transition-all duration-500 ease-out" 
+            style={{ width: `${loadProgress}%` }}
+          />
         </div>
       </div>
     );
@@ -215,7 +298,7 @@ export default function App() {
             <Features lang={lang} t={t} />
 
             {/* Use Cases Grid */}
-            <UseCases lang={lang} t={t} />
+            <UseCases lang={lang} t={t} useCasesData={data.useCases} />
 
             {/* Dynamic Wizard / Use Cases */}
             <Wizard lang={lang} t={t} />
@@ -227,7 +310,7 @@ export default function App() {
             <Compare lang={lang} t={t} />
 
             {/* Transparent Pricing Plans */}
-            <Pricing lang={lang} t={t} />
+            <Pricing lang={lang} t={t} plansData={data.plans} />
 
             {/* Developer Sandbox */}
             <Developer lang={lang} t={t} />
@@ -287,13 +370,13 @@ export default function App() {
 
         {currentPage === "customers" && (
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <Customers lang={lang} />
+            <Customers lang={lang} storiesData={data.stories} />
           </div>
         )}
 
         {currentPage === "tutorials" && (
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <Tutorials lang={lang} />
+            <Tutorials lang={lang} tutorialsData={data.tutorials} />
           </div>
         )}
 

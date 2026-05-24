@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Quote, Sparkles, TrendingUp, Users, Star, CheckCircle, MessageSquare, Send } from "lucide-react";
-import storiesData from "../data/stories.json";
 
-export default function Customers({ lang }) {
+export default function Customers({ lang, storiesData }) {
   const isAr = lang === "ar";
   const [activeCategory, setActiveCategory] = useState("all");
+  
+  if (!storiesData) return null;
   
   // State for user submissions
   const [submissions, setSubmissions] = useState([]);

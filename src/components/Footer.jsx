@@ -48,32 +48,19 @@ export default function Footer({ lang, t }) {
           {/* Aquadic Products Column */}
           <div className="md:col-span-3 flex flex-col items-start gap-3 text-start">
             <h4 className="text-sm font-bold font-alexandria text-white uppercase tracking-wider">
-              {lang === "ar" ? "منتجات أكوادك" : "Aquadic Products"}
+              {t.footer.productsTitle || (lang === "ar" ? "منتجات أكوادك" : "Aquadic Products")}
             </h4>
-            <a
-              href="https://aquadic.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs sm:text-sm text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
-            >
-              {lang === "ar" ? "أكوادك للبرمجيات aquadic.com" : "Aquadic Software (aquadic.com)"}
-            </a>
-            <a
-              href="https://darrebpro.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs sm:text-sm text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
-            >
-              {lang === "ar" ? "درب برو - أكاديميات الرياضة darrebpro.com" : "DarrebPro Sports (darrebpro.com)"}
-            </a>
-            <a
-              href="https://obranchy.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs sm:text-sm text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
-            >
-              {lang === "ar" ? "أوبرانشي - إنشاء متاجر obranchy.com" : "Obranchy E-commerce (obranchy.com)"}
-            </a>
+            {(t.footer.products || []).map((product, idx) => (
+              <a
+                key={idx}
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs sm:text-sm text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
+              >
+                {product.name}
+              </a>
+            ))}
           </div>
 
           {/* Verification Badges Column */}

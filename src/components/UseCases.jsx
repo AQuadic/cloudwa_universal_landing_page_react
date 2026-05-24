@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ShoppingBag, ShieldCheck, Megaphone, Users, ArrowRight, ArrowLeft } from "lucide-react";
-import useCases from "../data/useCases.json";
 
 const getUseCaseIcon = (id, sizeClass = "h-4 w-4") => {
   switch (id) {
@@ -17,16 +16,18 @@ const getUseCaseIcon = (id, sizeClass = "h-4 w-4") => {
   }
 };
 
-export default function UseCases({ lang, t }) {
+export default function UseCases({ lang, t, useCasesData }) {
   const [activeUseCase, setActiveUseCase] = useState("ecommerce");
 
-  const useCasesList = useCases.useCasesList.map((item) => ({
+  if (!useCasesData) return null;
+
+  const useCasesList = useCasesData.useCasesList.map((item) => ({
     id: item.id,
     label: lang === "ar" ? item.label.ar : item.label.en,
     icon: getUseCaseIcon(item.id)
   }));
 
-  const rawData = useCases.useCasesData[activeUseCase];
+  const rawData = useCasesData.useCasesData[activeUseCase];
   const currentUseCase = {
     icon: getUseCaseIcon(activeUseCase, "h-6 w-6"),
     title: lang === "ar" ? rawData.title.ar : rawData.title.en,

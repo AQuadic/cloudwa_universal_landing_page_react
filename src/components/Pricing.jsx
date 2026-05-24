@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Check, Info } from "lucide-react";
-import plansData from "../data/plans.json";
 
-export default function Pricing({ lang, t }) {
+export default function Pricing({ lang, t, plansData }) {
   const [activeTab, setActiveTab] = useState("official"); // 'official' or 'unofficial'
 
+  if (!plansData) return null;
   const plans = activeTab === "official" ? plansData.officialPlans : plansData.unofficialPlans;
 
   return (

@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BookOpen, Search, HelpCircle, Code, Copy, Check, X, ShieldAlert, Award } from "lucide-react";
-import tutorialsData from "../data/tutorials.json";
 
-export default function Tutorials({ lang }) {
+export default function Tutorials({ lang, tutorialsData }) {
   const isAr = lang === "ar";
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,6 +16,8 @@ export default function Tutorials({ lang }) {
     { id: "stores", label: isAr ? "ربط المتاجر والمنصات" : "E-commerce & Store Links" },
     { id: "dev", label: isAr ? "أتمتة وأدوات المطورين" : "APIs & Automations" }
   ];
+
+  if (!tutorialsData) return null;
 
   // Filter based on search query and category tab
   const filteredTutorials = tutorialsData.filter((item) => {

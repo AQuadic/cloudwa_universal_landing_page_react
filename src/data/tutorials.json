@@ -1,0 +1,270 @@
+[
+  {
+    "id": 1,
+    "category": "meta",
+    "title": {
+      "ar": "كيفية توثيق حساب Meta Business Manager للربط الرسمي",
+      "en": "How to verify Meta Business Manager for Official API"
+    },
+    "desc": {
+      "ar": "دليل مبسط خطوة بخطوة لشرح المستندات المطلوبة والخطوات لتوثيق علامتك التجارية لدى Meta لربط الواتساب الرسمي في أقل من 24 ساعة.",
+      "en": "A complete step-by-step guide explaining the exact paperwork and steps to verify your business manager with Meta in 24 hours."
+    },
+    "duration": {
+      "ar": "شرح 5 دقائق",
+      "en": "5 min read"
+    },
+    "difficulty": {
+      "ar": "سهل",
+      "en": "Beginner"
+    },
+    "content": {
+      "ar": {
+        "intro": "توثيق حساب Meta Business Manager هو الخطوة الأساسية لتفعيل الـ API الرسمي وضمان عدم تعرض رقمك للحظر وحصولك على الشارة الخضراء. إليك الخطوات بالتفصيل:",
+        "steps": [
+          "قم بزيارة مدير أعمال فيسبوك عبر الرابط (business.facebook.com) وسجل الدخول بحسابك الرئيسي.",
+          "اذهب إلى 'إعدادات العمل' (Business Settings) ثم إلى 'معلومات العمل' (Business Info) واملأ الاسم القانوني للشركة، العنوان، ورقم الهاتف بدقة بالغة.",
+          "في قسم 'مركز الأمان' (Security Center)، اضغط على زر 'بدء التوثيق' (Start Verification). إذا كان الزر غير نشط، ستحتاج لإنشاء تطبيق مطورين وربطه بمدير الأعمال لتفعيله.",
+          "قم برفع المستندات القانونية المطابقة للمعلومات المسجلة. المستندات المقبولة في الدول العربية تشمل: (السجل التجاري الساري، رخصة البلدية/النشاط، أو شهادة التسجيل الضريبي للشركة).",
+          "أدخل رقم هاتف واتساب مخصص لاستلام رسائل الـ API الرسمي (تأكد أن الرقم غير مسجل في تطبيق واتساب العادي، أو قم بحذف الحساب الحالي منه أولاً لتجهيزه للربط الرسمي)."
+        ],
+        "tips": [
+          "تأكد أن اسم الشركة المدخل في لوحة تحكم فيسبوك يطابق تماماً الاسم المكتوب في السجل التجاري والبطاقة الضريبية لتفادي رفض الملف.",
+          "يستغرق فريق مراجعة Meta عادةً من ساعتين إلى 24 ساعة للرد على طلبات التوثيق."
+        ],
+        "code": "",
+        "codeLang": ""
+      },
+      "en": {
+        "intro": "Verifying your Meta Business Manager is the cornerstone of unlocking the Official WhatsApp API, ensuring zero ban rates, and obtaining your company's green badge. Follow these steps:",
+        "steps": [
+          "Navigate to the Facebook Business Manager portal (business.facebook.com) and sign in using your admin credentials.",
+          "Open 'Business Settings' -> 'Business Info' and enter your official corporate legal name, physical address, and contact number exactly as they appear on your legal documents.",
+          "Under the 'Security Center' tab, click 'Start Verification'. If the button is greyed out, you must create a placeholder Meta Developer Application and link it to your business ID.",
+          "Upload valid government-issued business registration certificates (e.g. Commercial Registry, active Trade License, or Corporate Tax Certificate).",
+          "Verify the phone number you intend to assign to your WhatsApp Cloud API. Note: This number must not be active on any standard personal/business WhatsApp app. If it is, delete that account first."
+        ],
+        "tips": [
+          "The legal name on your business documentation must exactly match the name you enter into Facebook Business Manager to prevent automated rejections.",
+          "Meta approval reviews typically conclude within 2 to 24 hours depending on documentation clarity."
+        ],
+        "code": "",
+        "codeLang": ""
+      }
+    }
+  },
+  {
+    "id": 2,
+    "category": "stores",
+    "title": {
+      "ar": "ربط وتفعيل إرسال الرسائل تلقائياً في WooCommerce",
+      "en": "Integrating automated alerts with WooCommerce stores"
+    },
+    "desc": {
+      "ar": "شرح تنصيب إضافات الواتساب في ووردبريس، وربط مفتاح API من لوحة تحكم CloudWA لتهيئة إرسال رسائل الفواتير والطلبات تلقائياً.",
+      "en": "Step-by-step guide to installing WordPress webhooks, binding your CloudWA API key, and configuring instant checkout alerts."
+    },
+    "duration": {
+      "ar": "شرح 8 دقائق",
+      "en": "8 min read"
+    },
+    "difficulty": {
+      "ar": "متوسط",
+      "en": "Intermediate"
+    },
+    "content": {
+      "ar": {
+        "intro": "ربط WooCommerce بـ CloudWA يسمح لمتجرك بإرسال رسائل آلية فورية لعملائك بمجرد إنشاء طلب جديد، تغيير حالة الشحن، أو تذكيرهم بالسلات المتروكة. إليك طريقة الربط:",
+        "steps": [
+          "سجل الدخول إلى حسابك في لوحة تحكم CloudWA، وانتقل إلى قسم 'مفاتيح الربط' (API Keys) ثم قم بإنشاء مفتاح ربط جديد وانسخه.",
+          "توجه إلى لوحة تحكم ووردبريس (WordPress Admin) الخاصة بمتجرك، واذهب إلى قسم الإضافات (Plugins) واضغط على 'إضافة جديد'.",
+          "ابحث عن إضافة 'CloudWA Webhooks WooCommerce' الرسمية، وقم بتثبيتها وتفعيلها على موقعك.",
+          "انتقل إلى إعدادات الإضافة في ووردبريس، وقم بلصق مفتاح الـ API Key الذي نسخته، ثم حدد رقم الواتساب الذي ترغب بالإرسال من خلاله.",
+          "اختر حالات الطلب التي ترغب في إرسال إشعارات لها (مثال: طلب جديد قيد المعالجة، طلب مكتمل، أو طلب ملغي) وقم بصياغة القالب المناسب لكل حالة."
+        ],
+        "tips": [
+          "تأكد من استخدام علامات ديناميكية في قالب الرسالة مثل {customer_name} و {order_id} ليتم تعويضها تلقائياً ببيانات العميل الفعلية عند الإرسال.",
+          "قبل إطلاق المتجر الفعلي، أرسل طلباً تجريبياً للتأكد من توافق تنسيق أرقام الهواتف (مثال: إضافة رمز الدولة مثل 20 أو 966)."
+        ],
+        "code": "{\n  \"order_id\": 4829,\n  \"customer_phone\": \"+201099999999\",\n  \"customer_name\": \"احمد محمد\",\n  \"total_price\": \"250 EGP\",\n  \"status\": \"processing\"\n}",
+        "codeLang": "json"
+      },
+      "en": {
+        "intro": "Integrating WooCommerce with CloudWA enables your store to dispatch instant automated updates to customers for new orders, shipping changes, or abandoned cart alerts. Follow these instructions:",
+        "steps": [
+          "Log into your CloudWA developer portal, navigate to the 'API Keys' tab, generate a secure token, and copy it to your clipboard.",
+          "Go to your WordPress Admin Dashboard, click on 'Plugins' -> 'Add New', search for 'CloudWA WooCommerce Alerts', and install/activate it.",
+          "Open the CloudWA plugin configuration menu, paste your API Key, and select your preferred active WhatsApp phone gateway.",
+          "Toggle order status events that should trigger instant messages (e.g. Order Created, Processing, Completed, or Failed).",
+          "Customize your dynamic messaging templates by defining dynamic variables matching your customer checkout form fields."
+        ],
+        "tips": [
+          "Use standard variables like {customer_name} and {order_id} in your templates. Our system substitutes these values automatically at runtime.",
+          "Run a test checkout with a placeholder number to verify that international dialing codes (e.g., +1, +966) are parsed correctly."
+        ],
+        "code": "{\n  \"order_id\": 4829,\n  \"customer_phone\": \"+201099999999\",\n  \"customer_name\": \"Ahmed Mohamed\",\n  \"total_price\": \"250 EGP\",\n  \"status\": \"processing\"\n}",
+        "codeLang": "json"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "category": "stores",
+    "title": {
+      "ar": "ربط متجر سلة (Salla) لإرسال تحديثات الشحن",
+      "en": "Connecting Salla Store for automatic shipping alerts"
+    },
+    "desc": {
+      "ar": "دليل إعداد الويب هوكس (Webhooks) المباشر في منصة سلة، وتحديد حالات الطلب المناسبة لإخطار العملاء تلقائياً بروابط الشحن وتغيير الحالات.",
+      "en": "How to configure direct webhooks inside Salla dashboard and trigger automatic notifications with shipping tracking links."
+    },
+    "duration": {
+      "ar": "شرح 6 دقائق",
+      "en": "6 min read"
+    },
+    "difficulty": {
+      "ar": "سهل",
+      "en": "Beginner"
+    },
+    "content": {
+      "ar": {
+        "intro": "إذا كان متجرك يعمل على منصة سلة السعودية (Salla)، يمكنك استخدام CloudWA كشريك معتمد لإرسال الإخطارات وتحديثات الشحن لعملائك تلقائياً وبسهولة تامة. خطوات التفعيل:",
+        "steps": [
+          "اذهب إلى متجر تطبيقات سلة وابحث عن تطبيق 'CloudWA'، ثم اضغط على 'تثبيت التطبيق' وامنح الصلاحيات.",
+          "بعد التثبيت، سيتم توجيهك إلى صفحة ربط الحساب. سجل الدخول ببيانات CloudWA الخاصة بك ليتم الربط بين المنصتين فوراً.",
+          "ادخل إلى صفحة إعدادات التطبيق في سلة وحدد الأحداث (Webhooks) المطلوبة (مثل: إنشاء الطلب، تغيير حالة الشحن، أو جاهزية التوصيل).",
+          "في لوحة تحكم CloudWA، توجه لقسم قوالب سلة، وصغ رسائل مخصصة مثل: 'أهلاً عميلنا العزيز، تم تسليم شحنتك لشركة الشحن {shipping_company}. تتبع طلبك هنا: {tracking_link}'."
+        ],
+        "tips": [
+          "تأكد من شحن رصيد باقة الويب أو تفعيل باقة Meta الرسمية لضمان عدم توقف الرسائل عند بلوغ الحدود.",
+          "تدعم المنصة إرسال صور الفواتير أو ملفات PDF مباشرة كملحقات اختيارية مع رسائل حالة الطلب في سلة."
+        ],
+        "code": "",
+        "codeLang": ""
+      },
+      "en": {
+        "intro": "If your e-commerce store is hosted on Salla, you can connect CloudWA to send transactional messages and shipping links directly to your clients. Here is the configuration guide:",
+        "steps": [
+          "Visit the Salla App Store, search for 'CloudWA', and click 'Install App' to grant necessary read/write API scopes.",
+          "You will be redirected back to the authorization portal. Log in with your CloudWA developer credentials to sync accounts.",
+          "Inside your Salla developer settings, define webhook events for 'Order Dispatched' and 'Status Changed'.",
+          "Draft your message templates inside CloudWA using Saudi Riyal pricing variables and shipping company hooks (e.g. Aramex, SMSA)."
+        ],
+        "tips": [
+          "Ensure your CloudWA wallet or Meta subscription is funded to guarantee uninterrupted delivery during high-volume sales periods.",
+          "You can optionally attach dynamic invoice PDF links as media attachments alongside standard text alerts."
+        ],
+        "code": "",
+        "codeLang": ""
+      }
+    }
+  },
+  {
+    "id": 4,
+    "category": "dev",
+    "title": {
+      "ar": "كيفية بناء سيناريو رد آلي (Chatbot) ذكي بالـ AI",
+      "en": "Building a smart automated Chatbot with ChatGPT API"
+    },
+    "desc": {
+      "ar": "دليل يشرح كيفية كتابة سيناريوهات الردود، وتكامل مساعد الذكاء الاصطناعي ChatGPT مع CloudWA للرد التلقائي الذكي على العملاء 24/7.",
+      "en": "Guide to writing response flows and connecting OpenAI's API inside CloudWA to provide 24/7 automated support to your users."
+    },
+    "duration": {
+      "ar": "شرح 12 دقيقة",
+      "en": "12 min read"
+    },
+    "difficulty": {
+      "ar": "متوسط",
+      "en": "Intermediate"
+    },
+    "content": {
+      "ar": {
+        "intro": "تكامل CloudWA مع ذكاء اصطناعي مثل ChatGPT يمنحك موظف خدمة عملاء ذكي يعمل على مدار الساعة ليجيب على استفسارات عملائك بدقة فائقة وبناءً على بيانات متجرك وعملك. خطوات الإعداد:",
+        "steps": [
+          "اذهب إلى موقع OpenAI (platform.openai.com) وأنشئ حساباً ثم استخرج مفتاح ربط سري جديد (API Key).",
+          "في لوحة تحكم CloudWA، انتقل إلى قائمة 'البوتات الذكية' (Chatbots) واضغط على زر 'إنشاء بوت AI جديد'.",
+          "أدخل اسم البوت، والصق مفتاح OpenAI API Key الخاص بك في الخانة المحددة، ثم اختر الموديل المفضل (مثل gpt-4o-mini).",
+          "في حقل 'تعليمات النظام' (System Instructions / Prompt)، اكتب توجيهات سلوك البوت بدقة. مثال: 'أنت مساعد ذكي لمتجر CloudWA. أجب بلباقة واختصار بناءً على الأسعار والمواعيد المرفقة فقط. إذا سألك العميل عن كود برمجي، حوله للدعم الفني'.",
+          "قم بحفظ الإعدادات وتعيين أرقام الهواتف النشطة التي ترغب في أن يتدخل البوت للرد عليها تلقائياً."
+        ],
+        "tips": [
+          "نوصي بشدة بوضع سقف استهلاك شهري (Spend Limit) في حساب OpenAI الخاص بك لتفادي التكاليف المرتفعة أثناء إطلاق الحملات التسويقية الضخمة.",
+          "يمكنك اختبار ردود البوت وتدريبه في لوحة المحاكاة المتاحة داخل قسم البوتات بـ CloudWA قبل إطلاقه للجمهور."
+        ],
+        "code": "{\n  \"role\": \"system\",\n  \"content\": \"You are a customer support agent for CloudWA. Answer inquiries in Arabic/English politely. Key details: Official Plan is $35/mo. Budget plan is $149/yr.\"\n}",
+        "codeLang": "json"
+      },
+      "en": {
+        "intro": "Integrating CloudWA with OpenAI's ChatGPT provides you with an AI-driven support agent that answers client questions 24/7 based on your custom company knowledge. Follow these setup steps:",
+        "steps": [
+          "Navigate to OpenAI's developer platform (platform.openai.com), create an account, and generate a new API key.",
+          "In the CloudWA portal, click 'Smart Bots' -> 'Add AI Chatbot'.",
+          "Give your agent a name, paste the OpenAI secret key, and select the optimal model (e.g. gpt-4o-mini for cost efficiency).",
+          "Draft your system instructions (System Prompt). Example: 'You are a retail helper for CloudWA. Be friendly, answer queries briefly using our listed pricing plans, and forward complex requests to human staff.'",
+          "Toggle the specific WhatsApp phone numbers where the AI should handle customer replies."
+        ],
+        "tips": [
+          "We highly recommend setting monthly usage spending caps in your OpenAI account to control API query billing during large broadcast campaigns.",
+          "Test your chatbot responses inside our sandbox playground to verify instructions before pushing it live to customers."
+        ],
+        "code": "{\n  \"role\": \"system\",\n  \"content\": \"You are a customer support agent for CloudWA. Answer inquiries in Arabic/English politely. Key details: Official Plan is $35/mo. Budget plan is $149/yr.\"\n}",
+        "codeLang": "json"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "category": "dev",
+    "title": {
+      "ar": "الربط البرمجي وإرسال الرسائل عبر cURL و Node.js",
+      "en": "Programmatic integration via cURL and Node.js"
+    },
+    "desc": {
+      "ar": "توثيق برمجي كامل للمطورين لتهيئة إرسال الرسائل الإخطارية، وتلقي الـ Webhooks لتحديثات استلام وقراءة الرسائل فورياً.",
+      "en": "Full documentation reference for developers, including triggering notifications and receiving webhook delivery reports."
+    },
+    "duration": {
+      "ar": "شرح 10 دقائق",
+      "en": "10 min read"
+    },
+    "difficulty": {
+      "ar": "متقدم",
+      "en": "Advanced"
+    },
+    "content": {
+      "ar": {
+        "intro": "توفر CloudWA واجهة برمجية (RESTful API) نظيفة وسريعة تتيح لك إرسال الرسائل النصية والملفات التفاعلية من نظامك الخاص أو تطبيقك عبر طلب HTTP بسيط. خطوات الربط:",
+        "steps": [
+          "احصل على مفتاح الـ API Key الخاص بك من لوحة تحكم المطورين في CloudWA.",
+          "حدد رابط النهاية (Endpoint) المناسب حسب نوع الباقة المستخدمة (رسمية معتمدة أو ربط ويب اقتصادي).",
+          "قم بإعداد رأس الطلب (Headers) ليشمل Authorization Token ونوع البيانات JSON.",
+          "أرسل طلب POST يحوي رقم هاتف المستلم (شاملاً كود الدولة الدولي) ومحتوى الرسالة النصي.",
+          "استقبل استجابة الخادم وتأكد من حفظ معرّف الرسالة (message_id) لتتبع حالتها لاحقاً عبر الـ Webhook."
+        ],
+        "tips": [
+          "احفظ مفتاح الـ API Key الخاص بك في بيئة خادم آمنة (.env) ولا تقم بتضمينه في كود الواجهة الأمامية للعملاء أبداً حماية لحسابك.",
+          "احرص على إرسال أرقام الهواتف بصيغة دولية صحيحة تبدأ بـ رمز الدولة وتخلو من الأصفار الإضافية أو علامة + في البوابات الاقتصادية."
+        ],
+        "code": "curl -X POST \"https://api.cloudwa.net/v1/messages\" \\\n  -H \"Authorization: Bearer YOUR_API_TOKEN\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"to\": \"201101782890\",\n    \"type\": \"text\",\n    \"body\": \"Hello from CloudWA Developer API!\"\n  }'",
+        "codeLang": "bash"
+      },
+      "en": {
+        "intro": "CloudWA provides developers with a standard RESTful API. Send WhatsApp messages, images, and documents programmatically via simple HTTP post requests. Follow this quickstart:",
+        "steps": [
+          "Acquire your development API key from your CloudWA dashboard portal.",
+          "Select the correct base endpoint matching either the Official Meta gateway or the Budget Web gateway.",
+          "Construct your HTTP headers to include your Bearer Token authentication and JSON content-type specification.",
+          "Perform a POST request containing the recipient's phone number and the text content body.",
+          "Process the JSON response to capture the unique transaction message ID for webhook status logging."
+        ],
+        "tips": [
+          "Keep your API token secure inside environment variables (.env). Never hardcode secrets in client-side bundles.",
+          "Double check that recipient phone numbers do not include leading zeroes or special spaces in the API payloads."
+        ],
+        "code": "curl -X POST \"https://api.cloudwa.net/v1/messages\" \\\n  -H \"Authorization: Bearer YOUR_API_TOKEN\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"to\": \"201101782890\",\n    \"type\": \"text\",\n    \"body\": \"Hello from CloudWA Developer API!\"\n  }'",
+        "codeLang": "bash"
+      }
+    }
+  }
+]

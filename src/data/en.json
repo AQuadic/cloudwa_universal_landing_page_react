@@ -1,0 +1,237 @@
+{
+  "nav": {
+    "problem": "Why Us",
+    "useCases": "Use Cases",
+    "compare": "Compare APIs",
+    "pricing": "Pricing",
+    "calculator": "Meta Calculator",
+    "faq": "FAQ",
+    "startNow": "Start Free Trial"
+  },
+  "hero": {
+    "metaBadge": "Meta Official Tech Provider",
+    "aquadicBadge": "Backed by Aquadic",
+    "titlePre": "Getting Banned?",
+    "titleOfficial": "Official WhatsApp API",
+    "titleUnofficial": "Web Automation API",
+    "titlePost": "One Portal. Two Ways to Scale.",
+    "subText": "CloudWA bridges the gap. Connect officially via Meta's secure cloud API with 0% message markup, or use our high-speed, cost-effective web automation gateway.",
+    "adviserBtn": "💡 Not sure? Take our 10-second pathfinder test",
+    "officialBtn": "Go Official (Safe)",
+    "officialAudience": "Best for registered brands & large volume (100% ban-free)",
+    "unofficialBtn": "Go Web API (No Meta Fees)",
+    "unofficialAudience": "Best for individuals, startups & developers (No documents)",
+    "stats": {
+      "agents": "Simultaneous Agents",
+      "contacts": "Contacts Database",
+      "commission": "Meta Markup Fee",
+      "support": "Real Technical Support"
+    }
+  },
+  "problem": {
+    "badge": "The Pain Points",
+    "title": "Stop Losing Customers to Sudden WhatsApp Bans",
+    "subtitle": "Using basic web automation APIs carries a risk of number bans if used improperly. Using standard WhatsApp limits your scaling capabilities.",
+    "cards": [
+      {
+        "icon": "⛔",
+        "title": "Sudden Number Bans",
+        "desc": "Years of customer relationships and histories deleted by Meta overnight with zero warnings."
+      },
+      {
+        "icon": "👥",
+        "title": "Multi-Agent Bottlenecks",
+        "desc": "Limited to just a couple of agents. While competitors handle hundreds of conversations at once."
+      },
+      {
+        "icon": "📵",
+        "title": "The Scale Anxiety",
+        "desc": "As your client database grows, your fear of getting flagged increases, limiting your marketing."
+      },
+      {
+        "icon": "💸",
+        "title": "Hidden Commission Markups",
+        "desc": "Other platforms charge an additional margin on top of official Meta template message pricing."
+      }
+    ]
+  },
+  "solution": {
+    "badge": "The CloudWA Solution",
+    "title": "We Hold the Stick from the Middle",
+    "subtitle": "You don't have to choose between high costs and high ban risks. We offer both paths in one dashboard.",
+    "official": {
+      "title": "Official Meta API Portal",
+      "desc": "Best for established brands, CRM integrations, and 100% compliant bulk notifications.",
+      "bullets": [
+        "Zero Risk of Number Ban",
+        "Official Green Verification Tick",
+        "Direct integration with Shopify, WooCommerce, ERPs",
+        "10 Agents included in base subscription",
+        "0% markup on official Meta pricing"
+      ]
+    },
+    "unofficial": {
+      "title": "Web Automation API (Budget-Friendly)",
+      "desc": "Best for startups, local stores, developers, and low-budget transaction alerts.",
+      "bullets": [
+        "Scan QR Code & connect instantly",
+        "No Meta template message fees",
+        "No company registration documents required",
+        "Unlimited custom schedules & message templates",
+        "Highly affordable fixed annual subscriptions"
+      ]
+    }
+  },
+  "wizard": {
+    "title": "Which WhatsApp API is Right for You?",
+    "subtitle": "Answer these 3 simple questions and let our dynamic wizard recommend the perfect path for your business.",
+    "questions": [
+      {
+        "id": "docs",
+        "text": "Do you have official business documents (e.g., Commercial Register)?",
+        "options": [
+          { "value": "yes", "text": "Yes, I have registered business documents" },
+          { "value": "no", "text": "No, I am an individual / unregistered brand" }
+        ]
+      },
+      {
+        "id": "volume",
+        "text": "What is your estimated monthly messaging volume?",
+        "options": [
+          { "value": "low", "text": "Low to Moderate (Under 50,000 / month)" },
+          { "value": "high", "text": "High Volume (Over 50,000 / month)" }
+        ]
+      },
+      {
+        "id": "budget",
+        "text": "What is your preferred budget and cost structure?",
+        "options": [
+          { "value": "fixed", "text": "Fixed Monthly/Yearly subscription (No per-message costs)" },
+          { "value": "meta", "text": "Pay per message (Meta rates) + Fixed system subscription" }
+        ]
+      }
+    ],
+    "resultTitle": "Our Recommendation:",
+    "resultReason": "Why this fits your business:",
+    "recommendations": {
+      "official": {
+        "title": "Official WhatsApp Cloud API",
+        "badge": "Highest Security & Stability",
+        "desc": "Since you have business registration documents and value 100% stability with high volumes, the Official API is the perfect match. You pay official Meta rates directly with 0% extra commission from CloudWA.",
+        "btn": "Start 7-Day Free Trial"
+      },
+      "unofficial": {
+        "title": "Web Automation API (Budget-Friendly)",
+        "badge": "Instant Setup & Fixed Budget",
+        "desc": "For quick setups, individual sellers, or businesses preferring a flat yearly fee without per-message Meta charges, our QR Web Automation gateway fits perfectly.",
+        "btn": "Try Web Gateway"
+      }
+    },
+    "nextBtn": "Next Question",
+    "prevBtn": "Back",
+    "restartBtn": "Restart Wizard"
+  },
+  "calculator": {
+    "title": "Interactive Meta Cost Calculator",
+    "subtitle": "Calculate and optimize your messaging budget. We pass official Meta rates to you at 0% markup.",
+    "countryLabel": "Recipient's Country:",
+    "marketingLabel": "Marketing Messages",
+    "marketingDesc": "Offers, discount codes, or promotional announcements.",
+    "utilityLabel": "Utility Messages",
+    "utilityDesc": "Order confirmations, shipping updates, or alerts.",
+    "authLabel": "Authentication Messages (OTP)",
+    "authDesc": "One-time security passwords for verification.",
+    "serviceLabel": "Customer-Initiated Replies (Service)",
+    "serviceDesc": "Free 24-hour customer support window.",
+    "freeBadge": "100% Free 🎉",
+    "metaCost": "Meta Message Cost:",
+    "cloudwaSub": "CloudWA Subscription:",
+    "totalCloudwa": "Total with CloudWA:",
+    "competitorCost": "With Competitor Platforms:",
+    "competitorSub": "Est. Competitor Subscription:",
+    "competitorMarkup": "Competitor Message Markup (20%):",
+    "totalCompetitor": "Total with Competitors:",
+    "savings": "Monthly Savings with CloudWA:",
+    "disclaimer": "*Meta rates are approximations based on Meta's official rate cards. CloudWA charges 0% commission on top of Meta's direct fees.",
+    "cta": "Save Money with CloudWA"
+  },
+  "pricing": {
+    "title": "Transparent Plans for Both Paths",
+    "subtitle": "Choose the package that aligns with your scale and business requirements.",
+    "officialTab": "Official API (Meta)",
+    "unofficialTab": "Web Automation API",
+    "perMonth": "/ month",
+    "perYear": "/ year",
+    "freeTrial": "Start 7-Day Free Trial",
+    "startFree": "Try now for Free",
+    "getStarted": "Get Started",
+    "customQuote": "Contact Sales",
+    "features": {
+      "agents": "Simultaneous Agents",
+      "contacts": "Contacts Database",
+      "campaigns": "Running Campaigns",
+      "schedules": "Schedules & Automation",
+      "support": "Technical Support",
+      "metaFees": "Meta Official Message Fees",
+      "aiBot": "AI Smart Agent (ChatGPT)",
+      "integrations": "Shopify / WooCommerce / n8n"
+    }
+  },
+  "developer": {
+    "title": "Built For Developers",
+    "subtitle": "Integrate WhatsApp into your tech stack within minutes. Switch between Official and Web Automation endpoints.",
+    "officialEndpoint": "Official API Endpoint",
+    "unofficialEndpoint": "Web Automation API",
+    "copySuccess": "Copied to clipboard!",
+    "copyBtn": "Copy"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Got questions? We have official, transparent answers.",
+    "questions": [
+      {
+        "q": "Q1: Do I need to pay extra fees to Meta on top of the $35 subscription?",
+        "a": "Yes. Meta charges an official cost for template messages which varies by country. We pass this cost directly to you at 0% commission/markup from our end. Incoming client messages and your answers within 24 hours are 100% free."
+      },
+      {
+        "q": "Q2: Can my WhatsApp number get banned while using CloudWA?",
+        "a": "If you use the Official WhatsApp API, there is ZERO risk of number bans, as it is fully authorized by Meta. If you use the Web Automation API, there is a risk if you send spam, but we provide safety tools (delays, custom templates) to minimize the risk."
+      },
+      {
+        "q": "Q3: How does the official verification process work?",
+        "a": "After registration, our technical team at Aquadic will schedule a WhatsApp session or call to walk you through linking your Facebook Business Manager and setting up your official Meta WhatsApp account step-by-step."
+      },
+      {
+        "q": "Q4: Is technical support really human-centered?",
+        "a": "Absolutely. Backed by Aquadic, you speak to real human engineers based in Egypt who understand local markets and speak your language directly, rather than waiting for auto-response support tickets."
+      },
+      {
+        "q": "Q5: Can I integrate CloudWA with custom CRM or ERP systems?",
+        "a": "Yes. We support custom webhooks, a robust Developer API, and full integration with automation platforms like n8n, Shopify, and WooCommerce. If you need bespoke custom development, Aquadic can build it for you."
+      }
+    ]
+  },
+  "footer": {
+    "rights": "All rights reserved. CloudWA is a product powered by Aquadic.",
+    "disclaimer": "Disclaimer: This service is not directly affiliated with Meta Platforms Inc. WhatsApp is a registered trademark of Meta.",
+    "productsTitle": "Aquadic Products",
+    "products": [
+      {
+        "name": "DarrebPro - Sports Academies",
+        "url": "https://darrebpro.com"
+      },
+      {
+        "name": "Obranchy - E-commerce in One Click",
+        "url": "https://obranchy.com"
+      },
+      {
+        "name": "Sehatak Aham - Medical Treatment Card",
+        "url": "https://sehatakaham.com"
+      },
+      {
+        "name": "About - Aquadic Software",
+        "url": "https://aquadic.com"
+      }
+    ]
+  }
+}
