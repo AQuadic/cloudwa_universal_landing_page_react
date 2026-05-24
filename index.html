@@ -76,8 +76,72 @@
     }
     </script>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="bg-gray-950">
+    <div id="root">
+      <!-- Static HTML Preloader (Visible before React JS bundle loads) -->
+      <div id="static-preloader" style="position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #030712; color: #ffffff; font-family: 'Alexandria', sans-serif; transition: opacity 0.3s ease;">
+        
+        <!-- Animated Blobs -->
+        <div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.15; overflow: hidden;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 24rem; height: 24rem; border-radius: 9999px; background-color: #6366f1; filter: blur(64px); animation: blob-pulse 3s infinite alternate;"></div>
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 18rem; height: 18rem; border-radius: 9999px; background-color: #10b981; filter: blur(64px); animation: blob-pulse 3s infinite alternate; animation-delay: 1s;"></div>
+        </div>
+
+        <!-- pulsing Logo Container -->
+        <div style="position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+          <div style="position: absolute; inset: -4px; border-radius: 1.5rem; background: linear-gradient(to top right, #6366f1, #10b981); filter: blur(8px); opacity: 0.7; animation: logo-pulse 2s infinite alternate;"></div>
+          <div style="position: relative; display: flex; height: 6rem; width: 6rem; align-items: center; justify-content: center; border-radius: 1.5rem; background: linear-gradient(to top right, #6366f1, #10b981); border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); animation: logo-float 4s ease-in-out infinite;">
+            <!-- Message Icon SVG -->
+            <svg style="height: 3rem; width: 3rem; color: #ffffff; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;" viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Typography Branding -->
+        <h2 style="font-size: 1.875rem; font-weight: 900; margin: 0 0 0.15rem 0; font-family: 'Outfit', sans-serif; background: linear-gradient(to right, #ffffff, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          CloudWA
+        </h2>
+        <p style="font-size: 0.625rem; font-weight: 900; letter-spacing: 0.1em; color: #6b7280; text-transform: uppercase; margin: 0 0 1.5rem 0; font-family: 'Outfit', sans-serif;">
+          Powered by Aquadic
+        </p>
+
+        <!-- Loading Subtitle -->
+        <p style="font-size: 0.75rem; font-weight: bold; color: #9ca3af; margin: 0 0 1rem 0; animation: text-flash 1.5s infinite;">
+          جاري تهيئة النظام...
+        </p>
+
+        <!-- Shimmer loading bar -->
+        <div style="height: 0.5rem; width: 12rem; background-color: #111827; border-radius: 9999px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); position: relative;">
+          <div style="position: absolute; top: 0; bottom: 0; left: 0; width: 5rem; background: linear-gradient(to right, #6366f1, #10b981); border-radius: 9999px; animation: bar-slide 1.5s infinite ease-in-out;"></div>
+        </div>
+
+      </div>
+
+      <!-- Styles for the pre-React loading screen animations -->
+      <style>
+        @keyframes blob-pulse {
+          0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.95); }
+          100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
+        }
+        @keyframes logo-pulse {
+          0% { opacity: 0.5; filter: blur(6px); }
+          100% { opacity: 0.9; filter: blur(10px); }
+        }
+        @keyframes logo-float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        @keyframes text-flash {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+        @keyframes bar-slide {
+          0% { left: -5rem; }
+          100% { left: 12rem; }
+        }
+      </style>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

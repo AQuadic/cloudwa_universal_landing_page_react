@@ -40,6 +40,18 @@ export default function Compare({ lang, t }) {
       cloudwa: lang === "ar" ? "بشري 24/7 (مهندسو أكوادك)" : "24/7 Human (Aquadic)",
       competitors: lang === "ar" ? "تذاكر بريد إلكتروني وبطيء" : "Email Tickets / Delayed",
       win: true
+    },
+    {
+      metric: lang === "ar" ? "أنواع الرسائل التفاعلية المدعومة" : "Interactive Message Types Supported",
+      cloudwa: lang === "ar" ? "كاملة (أزرار تفاعلية Buttons، عروض Carousel بالصور، ونماذج WhatsApp Flows)" : "Full (Interactive Buttons, Image Carousels, & WhatsApp Flows)",
+      competitors: lang === "ar" ? "رسائل نصية أو أزرار بسيطة فقط (لا تدعم Flows أو Carousels)" : "Plain text or basic buttons only (no Flows or Carousels)",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "سرعة إرسال الحملات التسويقية" : "Campaign Broadcast Speed",
+      cloudwa: lang === "ar" ? "فائقة السرعة في ثانية إلا ثانية" : "Instantaneous (split-second delivery)",
+      competitors: lang === "ar" ? "محدودة وسيرفرات إرسال بطيئة" : "Rate-limited / slow sending queues",
+      win: true
     }
   ];
 
@@ -78,6 +90,12 @@ export default function Compare({ lang, t }) {
       metric: lang === "ar" ? "فريق دعم فني متحدث بالعربية" : "Arabic Speaking Support Team",
       cloudwa: lang === "ar" ? "نعم (مهندسون مصريون)" : "Yes (Egyptian Engineers)",
       competitors: lang === "ar" ? "تذاكر فقط / بالإنجليزية فقط" : "Ticket-only / English only",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "أمان وفواصل إرسال الرسائل" : "Anti-Ban Sending Protection",
+      cloudwa: lang === "ar" ? "فواصل زمنية ذكية تلقائية (يساعدك فيها النظام)" : "Automatic smart intervals (system-assisted to prevent bans)",
+      competitors: lang === "ar" ? "لا توجد فواصل ذكية (خطر حظر الرقم مرتفع)" : "No delay adjustments (high risk of immediate ban)",
       win: true
     }
   ];

@@ -13,6 +13,7 @@ export default function Header({ lang, setLang, theme, setTheme, t, currentPage,
   const menuItems = [
     { id: "home", label: lang === "ar" ? "الرئيسية" : "Home" },
     { id: "problem", label: t.nav.problem },
+    { id: "message-types", label: lang === "ar" ? "أنواع الرسائل" : "Message Types" },
     { id: "customers", label: lang === "ar" ? "قصص النجاح" : "Success Stories" },
     { id: "tutorials", label: lang === "ar" ? "الشروحات" : "Tutorials" },
     { id: "calculator", label: t.nav.calculator },
@@ -26,6 +27,12 @@ export default function Header({ lang, setLang, theme, setTheme, t, currentPage,
       setCurrentPage("home");
       window.scrollTo({ top: 0, behavior: "smooth" });
       window.location.hash = "";
+      return;
+    }
+    if (id === "message-types") {
+      setCurrentPage("message-types");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.location.hash = "#message-types";
       return;
     }
     if (id === "customers") {
@@ -75,6 +82,7 @@ export default function Header({ lang, setLang, theme, setTheme, t, currentPage,
             const isActive = 
               (item.id === "home" && currentPage === "home") ||
               (item.id === "customers" && currentPage === "customers") ||
+              (item.id === "message-types" && currentPage === "message-types") ||
               (item.id === "tutorials" && currentPage === "tutorials");
               
             return (

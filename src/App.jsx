@@ -11,6 +11,7 @@ import Developer from "./components/Developer";
 import Footer from "./components/Footer";
 import Customers from "./components/Customers";
 import Tutorials from "./components/Tutorials";
+import MessageTypes from "./components/MessageTypes";
 import { HelpCircle, ChevronDown, ChevronUp, X, MessageSquare } from "lucide-react";
 
 export default function App() {
@@ -114,6 +115,7 @@ export default function App() {
     const hash = window.location.hash;
     if (hash === "#stories") return "customers";
     if (hash === "#tutorials") return "tutorials";
+    if (hash === "#message-types") return "message-types";
     return "home";
   });
 
@@ -385,6 +387,12 @@ export default function App() {
         {currentPage === "customers" && (
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <Customers lang={lang} storiesData={data.stories} />
+          </div>
+        )}
+
+        {currentPage === "message-types" && (
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <MessageTypes lang={lang} />
           </div>
         )}
 
