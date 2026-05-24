@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { translations } from "./data/translations";
+import translationsAr from "./data/ar.json";
+import translationsEn from "./data/en.json";
+const translations = { ar: translationsAr, en: translationsEn };
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
@@ -20,6 +22,15 @@ export default function App() {
   const [theme, setTheme] = useState("dark"); // Default to Dark Mode
   const [openFaqIdx, setOpenFaqIdx] = useState(null);
   const [showPromo, setShowPromo] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulated database / JSON data fetch loader
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // 1.5 seconds loading screen
+    return () => clearTimeout(timer);
+  }, []);
   
   // Initialize route from hash for direct links and bookmarks
   const [currentPage, setCurrentPage] = useState(() => {
@@ -142,6 +153,41 @@ export default function App() {
     const currentMonthIndex = new Date().getMonth();
     return lang === "ar" ? monthsAr[currentMonthIndex] : monthsEn[currentMonthIndex];
   };
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-950 text-white font-alexandria">
+        {/* Animated Background blobs */}
+        <div className="absolute inset-0 pointer-events-none opacity-20">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-brand-purple/40 blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-brand-green/30 blur-3xl animate-pulse-glow" style={{ animationDelay: "1s" }} />
+        </div>
+
+        {/* Pulse Branded Icon */}
+        <div className="relative flex items-center justify-center mb-6">
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-purple to-brand-green blur-md animate-pulse opacity-70" />
+          <div className="relative flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-tr from-brand-purple to-brand-green text-white shadow-2xl animate-floating">
+            <MessageSquare className="h-10 w-10 text-white" />
+          </div>
+        </div>
+
+        {/* Branded Text */}
+        <h2 className="text-2xl font-black tracking-tight mb-2 bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent font-outfit">
+          CloudWA
+        </h2>
+        
+        {/* Sub text */}
+        <p className="text-xs font-bold text-gray-500 animate-pulse">
+          {lang === "ar" ? "جاري تحميل البوابة الموحدة..." : "Loading Unified Portal..."}
+        </p>
+
+        {/* Bouncing progress bar */}
+        <div className="mt-8 h-1.5 w-28 bg-gray-800 rounded-full overflow-hidden relative">
+          <div className="absolute inset-y-0 bg-gradient-to-r from-brand-purple to-brand-green rounded-full animate-bounce w-12" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen transition-theme bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 selection:bg-brand-purple/35 selection:text-white">

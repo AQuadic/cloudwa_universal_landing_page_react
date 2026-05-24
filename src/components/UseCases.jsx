@@ -1,64 +1,39 @@
 import React, { useState } from "react";
 import { ShoppingBag, ShieldCheck, Megaphone, Users, ArrowRight, ArrowLeft } from "lucide-react";
+import useCases from "../data/useCases.json";
+
+const getUseCaseIcon = (id, sizeClass = "h-4 w-4") => {
+  switch (id) {
+    case "ecommerce":
+      return <ShoppingBag className={sizeClass} />;
+    case "otp":
+      return <ShieldCheck className={sizeClass} />;
+    case "marketing":
+      return <Megaphone className={sizeClass} />;
+    case "support":
+      return <Users className={sizeClass} />;
+    default:
+      return null;
+  }
+};
 
 export default function UseCases({ lang, t }) {
   const [activeUseCase, setActiveUseCase] = useState("ecommerce");
 
-  const useCasesData = {
-    ecommerce: {
-      icon: <ShoppingBag className="h-6 w-6" />,
-      title: lang === "ar" ? "أتمتة التجارة الإلكترونية" : "E-commerce Automation",
-      subtitle: lang === "ar" ? "ربط متجرك مع سلات الشراء وإرسال تنبيهات تلقائية" : "Connect your store to automate transactional notifications",
-      desc: lang === "ar" 
-        ? "اربط متجرك على Shopify أو WooCommerce أو منصتك الخاصة مباشرة بـ CloudWA. سيقوم النظام تلقائياً بإرسال تنبيهات واتساب للعميل فور إنشاء الطلب، تغيير حالة الشحن، أو تذكيره بالسلات المتروكة لزيادة مبيعاتك بنسبة تصل إلى 30%."
-        : "Connect your Shopify, WooCommerce, or custom e-commerce system directly. Send automated alerts to customers when an order is created, status changes, or remind them about abandoned carts to increase recovery rates.",
-      features: lang === "ar" 
-        ? ["تنبيهات حالة الطلب التلقائية", "استرجاع السلات المتروكة الذكي", "إرسال الفواتير بصيغة PDF", "تكامل مباشر مع Shopify & WooCommerce"]
-        : ["Automated order status alerts", "Smart abandoned cart recovery", "Direct PDF Invoice delivery", "Native Shopify & WooCommerce webhooks"]
-    },
-    otp: {
-      icon: <ShieldCheck className="h-6 w-6" />,
-      title: lang === "ar" ? "رسائل التحقق الثنائي (OTP)" : "Two-Factor Auth (OTP)",
-      subtitle: lang === "ar" ? "توثيق حسابات المستخدمين بأعلى درجات الأمان وأوفر التكاليف" : "Authenticate user accounts securely at a fraction of SMS costs",
-      desc: lang === "ar"
-        ? "استبدل رسائل الـ SMS مرتفعة التكلفة والضعيفة في التوصيل بأكواد توثيق فورية عبر الواتساب. CloudWA تضمن إرسال أكواد الـ OTP لعملائك لتسجيل الدخول أو إتمام الدفع بنسبة تسليم 99.9% وثبات كامل للخدمة."
-        : "Swap expensive, unreliable SMS alerts for instant WhatsApp OTP codes. CloudWA ensures secure delivery of one-time login or payment authentication codes to customers with a 99.9% delivery rate and high stability.",
-      features: lang === "ar"
-        ? ["سرعة توصيل أقل من 3 ثوانٍ", "بديل فائق التوفير لرسائل SMS", "أمان وحماية تامة لبيانات التوثيق", "تقارير استلام فورية لأكواد OTP"]
-        : ["Under 3-second delivery", "Ultra low-cost alternative to SMS", "High data security compliance", "Instant delivery reports for validation"]
-    },
-    marketing: {
-      icon: <Megaphone className="h-6 w-6" />,
-      title: lang === "ar" ? "الحملات الإعلانية والتسويق" : "Bulk Marketing & Broadcasts",
-      subtitle: lang === "ar" ? "أرسل عروضك وحملاتك لآلاف العملاء دفعة واحدة بأمان" : "Launch mass notification campaigns to thousands of customers safely",
-      desc: lang === "ar"
-        ? "أنشئ وجدول حملات تسويقية وتنبيهية جماعية لآلاف العملاء المستهدفين دفعة واحدة. يمكنك استخدام قوالب رسائل تفاعلية تحتوي على أزرار اتصال مباشر أو روابط مواقع، مع خوارزميات لحماية حساباتك من الحظر."
-        : "Build and schedule high-impact promotional broadcasts to thousands of contacts at once. Utilize interactive message templates featuring click-to-action buttons, links, or media attachments with anti-ban delay features.",
-      features: lang === "ar"
-        ? ["إرسال جماعي آمن ومحمي", "أزرار تفاعلية داخل الرسالة (Quick Reply)", "جدولة الحملات للأوقات المناسبة", "تقارير أداء لمعرفة التفاعل والقرّاء"]
-        : ["Anti-ban spacing and delays", "Interactive Quick Reply buttons", "Schedule campaigns in advance", "Rich analytics for open and click-through rates"]
-    },
-    support: {
-      icon: <Users className="h-6 w-6" />,
-      title: lang === "ar" ? "صندوق وارد مشترك وفريق دعم" : "Shared Team Inbox & Support",
-      subtitle: lang === "ar" ? "أدر محادثات عملائك مع فريق عملك بالكامل من شاشة واحدة" : "Manage customer responses with your entire team from one window",
-      desc: lang === "ar"
-        ? "لا تشتت فريق مبيعاتك. مع CloudWA، يمكن لـ 10 موظفين العمل في نفس الوقت على حساب واتساب واحد، مع توزيع تلقائي للمحادثات، بالإضافة لبوت رد ذكي مدعوم بالذكاء الاصطناعي (ChatGPT) يعمل 24/7."
-        : "Consolidate customer care. Connect up to 10 agents to handle customer chats from a single shared inbox simultaneously. Empower agents with private notes, auto-assignment, and ChatGPT-backed auto replies.",
-      features: lang === "ar"
-        ? ["توزيع ذكي للمحادثات على الموظفين", "شاشة شات موحدة لكل الفريق", "مساعد ذكي AI للرد 24/7", "إحصائيات أداء الموظفين وسرعة الرد"]
-        : ["Smart automated agent assignment", "Unified chat screen for team alignment", "24/7 ChatGPT AI agent auto-replies", "Agent response speed analytics"]
-    }
+  const useCasesList = useCases.useCasesList.map((item) => ({
+    id: item.id,
+    label: lang === "ar" ? item.label.ar : item.label.en,
+    icon: getUseCaseIcon(item.id)
+  }));
+
+  const rawData = useCases.useCasesData[activeUseCase];
+  const currentUseCase = {
+    icon: getUseCaseIcon(activeUseCase, "h-6 w-6"),
+    title: lang === "ar" ? rawData.title.ar : rawData.title.en,
+    subtitle: lang === "ar" ? rawData.subtitle.ar : rawData.subtitle.en,
+    desc: lang === "ar" ? rawData.desc.ar : rawData.desc.en,
+    features: lang === "ar" ? rawData.features.ar : rawData.features.en
   };
-
-  const useCasesList = [
-    { id: "ecommerce", label: lang === "ar" ? "التجارة الإلكترونية" : "E-Commerce", icon: <ShoppingBag className="h-4 w-4" /> },
-    { id: "otp", label: lang === "ar" ? "أكواد OTP للتوثيق" : "Secure OTP", icon: <ShieldCheck className="h-4 w-4" /> },
-    { id: "marketing", label: lang === "ar" ? "حملات تسويقية" : "Broadcasts", icon: <Megaphone className="h-4 w-4" /> },
-    { id: "support", label: lang === "ar" ? "صندوق دعم مشترك" : "Team Inbox", icon: <Users className="h-4 w-4" /> }
-  ];
-
-  const currentUseCase = useCasesData[activeUseCase];
 
   return (
     <section id="use-cases-list" className="py-20 bg-white dark:bg-gray-950 transition-theme border-t border-gray-250/50 dark:border-gray-800/50">

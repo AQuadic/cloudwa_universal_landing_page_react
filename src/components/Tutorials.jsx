@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BookOpen, Search, HelpCircle, Code, Copy, Check, X, ShieldAlert, Award } from "lucide-react";
-import { tutorialsData } from "../data/tutorialsData";
+import tutorialsData from "../data/tutorials.json";
 
 export default function Tutorials({ lang }) {
   const isAr = lang === "ar";

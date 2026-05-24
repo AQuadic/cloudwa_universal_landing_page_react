@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Quote, Sparkles, TrendingUp, Users, Star, CheckCircle, MessageSquare, Send } from "lucide-react";
+import storiesData from "../data/stories.json";
 
 export default function Customers({ lang }) {
   const isAr = lang === "ar";
@@ -23,56 +24,16 @@ export default function Customers({ lang }) {
     { value: "+450", label: isAr ? "علامة تجارية تعتمد علينا" : "Active brands trusting us", icon: <Users className="h-5 w-5 text-brand-purple" /> }
   ];
 
-  const defaultStories = [
-    {
-      category: "ecommerce",
-      title: isAr ? "متجر زينة للملابس الجاهزة" : "Zeina Fashion Store",
-      industry: isAr ? "تجارة إلكترونية" : "E-Commerce",
-      challenge: isAr 
-        ? "كان المتجر يعاني من حظر متكرر للأرقام بسبب استخدام أدوات إرسال عشوائية غير معتمدة، مما أدى لخسارة آلاف محادثات العملاء وتراجع المبيعات."
-        : "Faced frequent WhatsApp number bans using standard web scripts, losing valuable client chat histories and sales leads.",
-      solution: isAr
-        ? "الانتقال إلى بوابة CloudWA الرسمية (Meta API) وتفعيل ربط WooCommerce التلقائي لتنبيهات الطلبات واسترجاع السلات المتروكة."
-        : "Migrated to CloudWA Meta Official API and integrated native WooCommerce checkout webhook automation.",
-      result: isAr
-        ? "نسبة حظر 0%، وزيادة في نسبة استرداد السلات المتروكة بمقدار 28% في أول شهرين."
-        : "0% ban rate achieved, and a 28% increase in abandoned cart recovery in the first 60 days.",
-      metric: "28% Cart Recovery",
-      rating: 5
-    },
-    {
-      category: "healthcare",
-      title: isAr ? "مجمع عيادات الشفاء الطبي" : "Al-Shifa Medical Center",
-      industry: isAr ? "الرعاية الصحية" : "Healthcare & Clinics",
-      challenge: isAr
-        ? "صعوبة استقبال حجوزات المرضى على رقم واتساب واحد بموظف واحد فقط، مما سبب تأخراً كبيراً في الردود وغضب المراجعين."
-        : "Inability to handle patient bookings concurrently on a single WhatsApp number, causing delayed responses.",
-      solution: isAr
-        ? "استخدام باقة CloudWA الرسمية الموحدة لربط 10 موظفين دعم في نفس الوقت على شاشة محادثة واحدة للرد على المرضى بالتوازي."
-        : "Deployed CloudWA shared inbox to allow 10 medical reception agents to respond simultaneously.",
-      result: isAr
-        ? "تقليل زمن الانتظار والرد من ساعة كاملة إلى أقل من دقيقتين للمريض مع الحفاظ على التنظيم التام."
-        : "Reduced customer response wait times from 1 hour down to less than 2 minutes on average.",
-      metric: "< 2 Mins Reply Time",
-      rating: 5
-    },
-    {
-      category: "logistics",
-      title: isAr ? "منصة طلبات للتوصيل" : "Talabat Local Delivery",
-      industry: isAr ? "الخدمات اللوجستية" : "Logistics & Delivery App",
-      challenge: isAr
-        ? "التكلفة الباهظة لرسائل التوثيق الثنائي (SMS OTP) للتحقق من هوية السائقين والعملاء الجدد عبر بوابات الـ SMS التقليدية."
-        : "Extremely high costs of SMS gateways for sending OTP validation codes to drivers and users.",
-      solution: isAr
-        ? "ربط بوابة الويب الاقتصادية (QR Web API) من CloudWA وأتمتة إرسال رسائل التحقق وأكواد الـ OTP عبر الواتساب."
-        : "Connected CloudWA's budget-friendly Web Automation API to dispatch OTP verification codes via WhatsApp.",
-      result: isAr
-        ? "توفير أكثر من 70% من ميزانية رسائل التوثيق الثنائي الشهرية مع سرعة وصول فائقة وفورية."
-        : "Saved over 70% on monthly verification budgets with immediate delivery times.",
-      metric: "70% Budget Saved",
-      rating: 4
-    }
-  ];
+  const defaultStories = storiesData.map(story => ({
+    category: story.category,
+    title: isAr ? story.title.ar : story.title.en,
+    industry: isAr ? story.industry.ar : story.industry.en,
+    challenge: isAr ? story.challenge.ar : story.challenge.en,
+    solution: isAr ? story.solution.ar : story.solution.en,
+    result: isAr ? story.result.ar : story.result.en,
+    metric: story.metric,
+    rating: story.rating
+  }));
 
   // Combine default stories with user submissions
   const allStories = [...defaultStories, ...submissions];
