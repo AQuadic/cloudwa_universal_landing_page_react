@@ -5,21 +5,81 @@ export default function Compare({ lang, t }) {
   const [activeCompareTab, setActiveCompareTab] = useState("official"); // 'official' or 'automation'
 
   const officialMetrics = [
-    { metric: lang === "ar" ? "الاشتراك الشهري الأساسي" : "Base Monthly Subscription", cloudwa: "$35.00", competitors: "$49 - $149", win: true },
-    { metric: lang === "ar" ? "عمولة إضافية على أسعار Meta" : "Markup Fee on Meta Messages", cloudwa: "0% (No Markup)", competitors: "10% - 25% Markup", win: true },
-    { metric: lang === "ar" ? "عدد موظفي الدعم المدرجين" : "Included Team Agents", cloudwa: "10 Agents", competitors: "2 Agents (Fees for more)", win: true },
-    { metric: lang === "ar" ? "حدود جهات الاتصال والعملاء" : "Contacts Database Limits", cloudwa: "Unlimited", competitors: "Limited (e.g. 5,000 max)", win: true },
-    { metric: lang === "ar" ? "بوت رد تلقائي + ChatGPT AI" : "AI Chatbot & ChatGPT", cloudwa: "Included", competitors: "Paid Add-on ($15-$30/mo)", win: true },
-    { metric: lang === "ar" ? "الدعم الفني المحلي المباشر" : "Direct Local Technical Support", cloudwa: "24/7 Human (Aquadic)", competitors: "Email Tickets / Delayed", win: true }
+    {
+      metric: lang === "ar" ? "الاشتراك الشهري الأساسي" : "Base Monthly Subscription",
+      cloudwa: lang === "ar" ? "35.00$ شهرياً" : "$35.00 / mo",
+      competitors: lang === "ar" ? "49$ إلى 149$ شهرياً" : "$49 - $149 / mo",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "عمولة إضافية على أسعار Meta" : "Markup Fee on Meta Messages",
+      cloudwa: lang === "ar" ? "0% (بدون أي زيادة)" : "0% (No Markup)",
+      competitors: lang === "ar" ? "10% إلى 25% زيادة" : "10% - 25% Markup",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "عدد موظفي الدعم المدرجين" : "Included Team Agents",
+      cloudwa: lang === "ar" ? "10 موظفين" : "10 Agents",
+      competitors: lang === "ar" ? "موظفان فقط (رسوم إضافية للمزيد)" : "2 Agents (Fees for more)",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "حدود جهات الاتصال والعملاء" : "Contacts Database Limits",
+      cloudwa: lang === "ar" ? "غير محدود" : "Unlimited",
+      competitors: lang === "ar" ? "محدود (مثال: 5,000 كحد أقصى)" : "Limited (e.g. 5,000 max)",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "بوت رد تلقائي + ChatGPT AI" : "AI Chatbot & ChatGPT",
+      cloudwa: lang === "ar" ? "مشمول مجاناً" : "Included",
+      competitors: lang === "ar" ? "إضافة مدفوعة (15$ - 30$ شهرياً)" : "Paid Add-on ($15-$30/mo)",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "الدعم الفني المحلي المباشر" : "Direct Local Technical Support",
+      cloudwa: lang === "ar" ? "بشري 24/7 (مهندسو أكوادك)" : "24/7 Human (Aquadic)",
+      competitors: lang === "ar" ? "تذاكر بريد إلكتروني وبطيء" : "Email Tickets / Delayed",
+      win: true
+    }
   ];
 
   const automationMetrics = [
-    { metric: lang === "ar" ? "التكلفة الشهرية (باقة Standard)" : "Monthly Equivalent Cost (Standard)", cloudwa: "$12.50 ($149.95/yr)", competitors: "$25.00 - $49.00 / month", win: true },
-    { metric: lang === "ar" ? "قنوات واتساب المربوطة" : "Linked WhatsApp Channels", cloudwa: "2 Channels included", competitors: "1 Channel only", win: true },
-    { metric: lang === "ar" ? "حدود الرسائل الشهرية" : "Monthly Message Limit", cloudwa: "125,000 Messages", competitors: "10,000 - 30,000 Messages", win: true },
-    { metric: lang === "ar" ? "أدوات حماية الرقم من الحظر" : "Built-in Anti-Ban Features", cloudwa: "Advanced (Proxy + Random Delays)", competitors: "Basic or None", win: true },
-    { metric: lang === "ar" ? "جدولة رسائل وحملات لا نهائية" : "Unlimited Campaigns & Schedules", cloudwa: "Yes (Unlimited)", competitors: "Limits based on tier", win: true },
-    { metric: lang === "ar" ? "فريق دعم فني متحدث بالعربية" : "Arabic Speaking Support Team", cloudwa: "Yes (Egyptian Engineers)", competitors: "Ticket-only / English only", win: true }
+    {
+      metric: lang === "ar" ? "التكلفة الشهرية (باقة Standard)" : "Monthly Equivalent Cost (Standard)",
+      cloudwa: lang === "ar" ? "12.50$ (149.95$ سنوياً)" : "$12.50 ($149.95/yr)",
+      competitors: lang === "ar" ? "25.00$ إلى 49.00$ شهرياً" : "$25.00 - $49.00 / month",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "قنوات واتساب المربوطة" : "Linked WhatsApp Channels",
+      cloudwa: lang === "ar" ? "قناتين (رقمين)" : "2 Channels included",
+      competitors: lang === "ar" ? "قناة واحدة فقط" : "1 Channel only",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "حدود الرسائل الشهرية" : "Monthly Message Limit",
+      cloudwa: lang === "ar" ? "125,000 رسالة" : "125,000 Messages",
+      competitors: lang === "ar" ? "10,000 إلى 30,000 رسالة" : "10,000 - 30,000 Messages",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "أدوات حماية الرقم من الحظر" : "Built-in Anti-Ban Features",
+      cloudwa: lang === "ar" ? "متقدمة (بروكسي + تأخير عشوائي)" : "Advanced (Proxy + Random Delays)",
+      competitors: lang === "ar" ? "بدائية أو غير متوفرة" : "Basic or None",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "جدولة رسائل وحملات لا نهائية" : "Unlimited Campaigns & Schedules",
+      cloudwa: lang === "ar" ? "نعم (غير محدود)" : "Yes (Unlimited)",
+      competitors: lang === "ar" ? "قيود حسب فئة الاشتراك" : "Limits based on tier",
+      win: true
+    },
+    {
+      metric: lang === "ar" ? "فريق دعم فني متحدث بالعربية" : "Arabic Speaking Support Team",
+      cloudwa: lang === "ar" ? "نعم (مهندسون مصريون)" : "Yes (Egyptian Engineers)",
+      competitors: lang === "ar" ? "تذاكر فقط / بالإنجليزية فقط" : "Ticket-only / English only",
+      win: true
+    }
   ];
 
   const currentMetrics = activeCompareTab === "official" ? officialMetrics : automationMetrics;

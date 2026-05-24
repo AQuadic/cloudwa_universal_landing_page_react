@@ -96,6 +96,21 @@ export default function Hero({ lang, t }) {
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-alexandria font-normal">
             {t.hero.subText}
           </p>
+
+          {/* Smart Pathfinder CTA */}
+          <div className="mt-8">
+            <button
+              onClick={() => {
+                const wizardEl = document.getElementById("wizard");
+                if (wizardEl) {
+                  wizardEl.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="inline-flex items-center gap-2 rounded-full bg-brand-purple/10 hover:bg-brand-purple/20 border border-brand-purple/35 dark:border-brand-violet/40 px-6 py-3.5 text-xs sm:text-sm font-black font-alexandria text-brand-purple dark:text-brand-violet hover:scale-[1.02] transition-all cursor-pointer shadow-sm animate-pulse-glow"
+            >
+              <span>{t.hero.adviserBtn}</span>
+            </button>
+          </div>
         </div>
 
         {/* Interactive Split Grid */}
@@ -120,6 +135,12 @@ export default function Hero({ lang, t }) {
               <h3 className="text-2xl font-black font-alexandria mb-3 text-gray-900 dark:text-white">
                 {t.solution.official.title}
               </h3>
+              
+              {/* Target Audience Badge */}
+              <div className="mb-4 inline-flex items-start bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 px-3.5 py-1.5 rounded-2xl text-[11px] font-bold font-alexandria text-start leading-normal">
+                <span>{t.hero.officialAudience}</span>
+              </div>
+
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 font-alexandria leading-relaxed">
                 {t.solution.official.desc}
               </p>
@@ -133,7 +154,9 @@ export default function Hero({ lang, t }) {
               </ul>
             </div>
             <a
-              href="#pricing"
+              href="https://calendly.com/aquadicsoftwares/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 block text-center rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold font-alexandria text-sm py-3.5 transition-colors shadow-md shadow-emerald-600/10"
             >
               {t.hero.officialBtn}
@@ -217,6 +240,12 @@ export default function Hero({ lang, t }) {
               <h3 className="text-2xl font-black font-alexandria mb-3 text-gray-900 dark:text-white">
                 {t.solution.unofficial.title}
               </h3>
+
+              {/* Target Audience Badge */}
+              <div className="mb-4 inline-flex items-start bg-indigo-500/10 dark:bg-indigo-500/15 border border-indigo-500/20 text-indigo-650 dark:text-indigo-400 px-3.5 py-1.5 rounded-2xl text-[11px] font-bold font-alexandria text-start leading-normal">
+                <span>{t.hero.unofficialAudience}</span>
+              </div>
+
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 font-alexandria leading-relaxed">
                 {t.solution.unofficial.desc}
               </p>
@@ -230,7 +259,9 @@ export default function Hero({ lang, t }) {
               </ul>
             </div>
             <a
-              href="#pricing"
+              href="https://cloudwa.net/console/login"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 block text-center rounded-xl bg-indigo-650 hover:bg-indigo-700 text-white font-bold font-alexandria text-sm py-3.5 transition-colors shadow-md shadow-indigo-650/10"
             >
               {t.hero.unofficialBtn}

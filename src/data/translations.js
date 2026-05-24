@@ -17,8 +17,11 @@ export const translations = {
       titleUnofficial: "Web Automation API",
       titlePost: "One Portal. Two Ways to Scale.",
       subText: "CloudWA bridges the gap. Connect officially via Meta's secure cloud API with 0% message markup, or use our high-speed, cost-effective web automation gateway.",
+      adviserBtn: "💡 Not sure? Take our 10-second pathfinder test",
       officialBtn: "Go Official (Safe)",
+      officialAudience: "Best for registered brands & large volume (100% ban-free)",
       unofficialBtn: "Go Web API (No Meta Fees)",
+      unofficialAudience: "Best for individuals, startups & developers (No documents)",
       stats: {
         agents: "Simultaneous Agents",
         contacts: "Contacts Database",
@@ -232,8 +235,11 @@ export const translations = {
       titleUnofficial: "الربط الاقتصادي (Web)",
       titlePost: "منصة واحدة. طريقان للنمو.",
       subText: "نمسك العصا من المنتصف. اربط حسابك رسمياً بـ Meta مع عمولة 0% على الرسائل، أو استخدم بوابة الويب الآلية السريعة والاقتصادية للمطورين والمتاجر الناشئة.",
+      adviserBtn: "💡 محتار بين الخيارين؟ اضغط هنا لمعرفة الأنسب لعملك في 10 ثوانٍ",
       officialBtn: "الربط الرسمي (آمن 100%)",
+      officialAudience: "للشركات الرسمية والعلامات التجارية (أمان 100% وبدون حظر)",
       unofficialBtn: "بوابة الويب (الربط الاقتصادي)",
+      unofficialAudience: "للشركات الناشئة، الأفراد والمبرمجين (بدون شروط وسعر ثابت)",
       stats: {
         agents: "موظفين في نفس الوقت",
         contacts: "عملاء غير محدودين",

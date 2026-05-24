@@ -78,7 +78,7 @@
         "ar": "جرب الآن مجاناً",
         "en": "Try Free"
       },
-      "link": "https://cloudwa.net/authentication/login"
+      "link": "https://cloudwa.net/console/login"
     },
     {
       "name": {
@@ -118,7 +118,7 @@
         "ar": "ابدأ الآن",
         "en": "Get Started"
       },
-      "link": "https://cloudwa.net/authentication/login"
+      "link": "https://cloudwa.net/console/login"
     },
     {
       "name": {
@@ -154,7 +154,7 @@
         "ar": "ابدأ الآن",
         "en": "Get Started"
       },
-      "link": "https://cloudwa.net/authentication/login"
+      "link": "https://cloudwa.net/console/login"
     },
     {
       "name": {
@@ -190,7 +190,7 @@
         "ar": "تواصل معنا للاشتراك",
         "en": "Contact Sales"
       },
-      "link": "https://cloudwa.net/authentication/login"
+      "link": "https://cloudwa.net/console/login"
     }
   ]
 }

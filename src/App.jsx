@@ -12,13 +12,14 @@ import Developer from "./components/Developer";
 import Footer from "./components/Footer";
 import Customers from "./components/Customers";
 import Tutorials from "./components/Tutorials";
-import { HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { HelpCircle, ChevronDown, ChevronUp, X, MessageSquare } from "lucide-react";
 import plansData from "./data/plans.json";
 
 export default function App() {
   const [lang, setLang] = useState("ar"); // Default to Arabic ('ar') or English ('en')
   const [theme, setTheme] = useState("dark"); // Default to Dark Mode
   const [openFaqIdx, setOpenFaqIdx] = useState(null);
+  const [showPromo, setShowPromo] = useState(false);
   
   // Initialize route from hash for direct links and bookmarks
   const [currentPage, setCurrentPage] = useState(() => {
@@ -114,6 +115,32 @@ export default function App() {
 
   const toggleFaq = (idx) => {
     setOpenFaqIdx(openFaqIdx === idx ? null : idx);
+  };
+
+  // 1-minute delay promotional popup hook
+  useEffect(() => {
+    const hasShown = sessionStorage.getItem("cloudwa_promo_shown");
+    if (hasShown === "true") return;
+
+    const timer = setTimeout(() => {
+      setShowPromo(true);
+      sessionStorage.setItem("cloudwa_promo_shown", "true");
+    }, 60000); // 1 minute (60,000ms)
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const getCurrentMonthName = () => {
+    const monthsAr = [
+      "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو",
+      "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+    ];
+    const monthsEn = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const currentMonthIndex = new Date().getMonth();
+    return lang === "ar" ? monthsAr[currentMonthIndex] : monthsEn[currentMonthIndex];
   };
 
   return (
@@ -228,6 +255,92 @@ export default function App() {
 
       {/* Footer */}
       <Footer lang={lang} t={t} />
+
+      {/* Floating WhatsApp Chathead */}
+      <div className={`fixed bottom-6 ${lang === "ar" ? "left-6" : "right-6"} z-40 flex flex-col items-end gap-2 group`}>
+        {/* Tooltip text */}
+        <div className={`bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-xs font-black font-alexandria px-3.5 py-2 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 opacity-0 scale-90 translate-y-2 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none ${lang === "ar" ? "text-right" : "text-left"}`}>
+          {lang === "ar" ? "👋 تحدث مع خدمة العملاء الآن" : "👋 Chat with Support Now"}
+        </div>
+        
+        {/* Glowing floating button */}
+        <a
+          href="https://wa.me/201101782890"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="h-14 w-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 transition-all hover:scale-110 cursor-pointer animate-floating"
+          aria-label="Chat on WhatsApp"
+        >
+          <svg
+            className="h-7 w-7 fill-current"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.725-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.45 5.516 0 10.005-4.486 10.008-10.007.001-2.673-1.036-5.186-2.92-7.071C16.471 1.64 13.968.602 11.3.602c-5.524 0-10.016 4.487-10.02 10.01 0 1.57.433 3.097 1.253 4.453l-.974 3.56 3.65-.959c1.353.74 2.766 1.135 4.382 1.136h.009zm10.224-6.843c-.278-.139-1.642-.81-1.898-.902-.256-.093-.443-.139-.629.139-.186.278-.72.902-.881 1.088-.162.186-.324.208-.602.069-.278-.139-1.173-.432-2.235-1.38-.826-.737-1.383-1.649-1.545-1.927-.162-.278-.017-.429.122-.567.125-.124.278-.324.417-.486.139-.162.186-.278.278-.463.093-.185.046-.347-.023-.486-.069-.139-.629-1.517-.862-2.074-.227-.546-.477-.472-.653-.481-.17-.008-.364-.01-.557-.01-.193 0-.509.072-.776.364-.267.292-1.02 1.02-1.02 2.483 0 1.463 1.065 2.875 1.213 3.074.149.199 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.642-.672 1.874-1.32.232-.648.232-1.204.162-1.32-.069-.116-.256-.208-.534-.347z"/>
+          </svg>
+        </a>
+      </div>
+
+      {/* 1-Minute Promo Modal Overlay */}
+      {showPromo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-fade-in">
+          <div 
+            className="glass-panel relative w-full max-w-md rounded-3xl p-8 text-center shadow-2xl border border-gray-200 dark:border-gray-800 scale-up flex flex-col items-center gap-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowPromo(false)}
+              className={`absolute top-4 ${lang === "ar" ? "left-4" : "right-4"} h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-850 text-gray-505 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors flex items-center justify-center cursor-pointer`}
+              aria-label="Close Promo"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            {/* Glowing Icon */}
+            <div className="h-16 w-16 rounded-full bg-brand-purple/10 text-brand-purple dark:text-brand-violet flex items-center justify-center animate-bounce">
+              <MessageSquare className="h-8 w-8" />
+            </div>
+
+            {/* Title & Body */}
+            <div>
+              <h3 className="text-xl sm:text-2xl font-black font-alexandria text-gray-900 dark:text-white mb-2 leading-tight">
+                {lang === "ar" ? "محتار لسه؟ كلمنا الآن!" : "Still Confused? Chat with us!"}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-350 font-alexandria leading-relaxed">
+                {lang === "ar"
+                  ? `تحدث معنا الآن واحصل على خصم خاص بمناسبة شهر ${getCurrentMonthName()}! فريق المهندسين جاهز لإرشادك للقرار الصح.`
+                  : `Chat with us now and unlock a special discount for ${getCurrentMonthName()}! Our engineers are ready to guide you.`}
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col gap-3 w-full">
+              {/* WhatsApp Button */}
+              <a
+                href="https://wa.me/201101782890"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowPromo(false)}
+                className="w-full rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold font-alexandria text-xs sm:text-sm py-4 shadow-md shadow-emerald-600/20 hover:scale-[1.01] hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>🟢 {lang === "ar" ? "افتح الواتساب وكلمنا" : "Chat on WhatsApp"}</span>
+              </a>
+
+              {/* Calendly Button */}
+              <a
+                href="https://calendly.com/aquadicsoftwares/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowPromo(false)}
+                className="w-full rounded-2xl border border-gray-250 dark:border-gray-800 text-gray-700 dark:text-gray-300 bg-white/40 dark:bg-gray-950/40 hover:bg-gray-50 dark:hover:bg-gray-900 py-4 text-xs sm:text-sm font-bold font-alexandria hover:scale-[1.01] transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>📅 {lang === "ar" ? "احجز ميعاد واستنانا" : "Book a Consultation"}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );

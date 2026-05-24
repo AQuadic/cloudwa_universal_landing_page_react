@@ -48,7 +48,7 @@ export default function Wizard({ lang, t }) {
   const recommendedData = recommendationKey ? t.wizard.recommendations[recommendationKey] : null;
 
   return (
-    <section id="use-cases" className="py-20 bg-gray-50/50 dark:bg-gray-900/30">
+    <section id="wizard" className="py-20 bg-gray-50/50 dark:bg-gray-900/30">
       <div className="mx-auto max-w-4xl px-6 lg:px-12">
         
         {/* Title */}
@@ -165,7 +165,9 @@ export default function Wizard({ lang, t }) {
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
-                  href="#pricing"
+                  href={recommendationKey === "official" ? "https://calendly.com/aquadicsoftwares/30min" : "https://cloudwa.net/console/login"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-purple to-brand-violet text-white font-bold font-alexandria text-sm shadow-lg shadow-brand-purple/20 hover:shadow-xl hover:shadow-brand-purple/35 hover:scale-[1.02] transition-all text-center"
                 >
                   {recommendedData.btn}
