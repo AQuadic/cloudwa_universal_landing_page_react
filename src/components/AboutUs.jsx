@@ -1,5 +1,5 @@
 import React from "react";
-import { Users, Rocket, Heart, MapPin, Linkedin, Twitter, Globe } from "lucide-react";
+import { Users, Rocket, Heart, MapPin, Globe } from "lucide-react";
 
 const content = {
   ar: {
