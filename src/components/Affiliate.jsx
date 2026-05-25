@@ -176,7 +176,7 @@ export default function Affiliate({ lang }) {
               💬 {c.ctaBtn}
             </a>
             <a
-              href="mailto:support@cloudwa.net?subject=Affiliate Program Inquiry"
+              href="mailto:hello@aquadic.com?subject=Affiliate Program Inquiry"
               className="inline-flex items-center justify-center gap-2 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 hover:bg-gray-50 dark:hover:bg-gray-900 font-bold font-alexandria text-sm px-8 py-4 rounded-2xl transition-all hover:scale-105"
             >
               📧 {c.ctaBtn2}

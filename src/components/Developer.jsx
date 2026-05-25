@@ -38,14 +38,14 @@ export default function Developer({ lang, t }) {
             <ArrowUpRight className="h-4 w-4 shrink-0" />
           </a>
           
-          {/* Unofficial Docs Link */}
+          {/* Budget Web Gateway Docs Link */}
           <a
             href="https://cloudwa.net/docs"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto min-w-[240px] rounded-2xl px-6 py-4 text-xs sm:text-sm font-black font-alexandria bg-indigo-650 hover:bg-indigo-750 text-white text-center shadow-lg shadow-indigo-600/25 hover:scale-[1.01] transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>⚡ {isAr ? "الدليل غير الرسمي" : "Unofficial Docs"}</span>
+            <span>⚡ {isAr ? "دليل بوابة الويب الاقتصادية" : "Budget Web Gateway Docs"}</span>
             <ArrowUpRight className="h-4 w-4 shrink-0" />
           </a>
         </div>

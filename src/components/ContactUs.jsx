@@ -25,7 +25,7 @@ const content = {
     channelsTitle: "قنوات التواصل المباشر",
     channels: [
       { icon: "whatsapp", label: "واتساب (الأسرع)", value: "+201101782890", href: "https://wa.me/201101782890", desc: "رد خلال دقائق خلال ساعات العمل" },
-      { icon: "email", label: "البريد الإلكتروني", value: "support@cloudwa.net", href: "mailto:support@cloudwa.net", desc: "رد خلال 24 ساعة عمل" },
+      { icon: "email", label: "البريد الإلكتروني", value: "hello@aquadic.com", href: "mailto:hello@aquadic.com", desc: "رد خلال 24 ساعة عمل" },
       { icon: "calendly", label: "احجز موعداً", value: "Calendly Booking", href: "https://calendly.com/aquadicsoftwares/30min", desc: "مكالمة فيديو مجانية مع المهندس" }
     ],
     workingHours: "ساعات العمل",
@@ -34,7 +34,7 @@ const content = {
       { day: "الجمعة والسبت", time: "11:00 ص – 4:00 م" }
     ],
     locationTitle: "موقعنا",
-    location: "القاهرة، جمهورية مصر العربية 🇪🇬"
+    location: "الإسكندرية، جمهورية مصر العربية 🇪🇬"
   },
   en: {
     badge: "Contact Us",
@@ -59,7 +59,7 @@ const content = {
     channelsTitle: "Direct Contact Channels",
     channels: [
       { icon: "whatsapp", label: "WhatsApp (Fastest)", value: "+201101782890", href: "https://wa.me/201101782890", desc: "Reply within minutes during working hours" },
-      { icon: "email", label: "Email", value: "support@cloudwa.net", href: "mailto:support@cloudwa.net", desc: "Reply within 24 working hours" },
+      { icon: "email", label: "Email", value: "hello@aquadic.com", href: "mailto:hello@aquadic.com", desc: "Reply within 24 working hours" },
       { icon: "calendly", label: "Book a Call", value: "Calendly Booking", href: "https://calendly.com/aquadicsoftwares/30min", desc: "Free video call with our engineer" }
     ],
     workingHours: "Working Hours",
@@ -68,7 +68,7 @@ const content = {
       { day: "Friday & Saturday", time: "11:00 AM – 4:00 PM" }
     ],
     locationTitle: "Our Location",
-    location: "Cairo, Arab Republic of Egypt 🇪🇬"
+    location: "Alexandria, Arab Republic of Egypt 🇪🇬"
   }
 };
 

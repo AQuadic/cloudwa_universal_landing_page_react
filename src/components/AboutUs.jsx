@@ -168,7 +168,7 @@ export default function AboutUs({ lang }) {
               <p className="text-sm text-gray-600 dark:text-gray-350 font-alexandria leading-relaxed mb-6">{c.aquadicDesc}</p>
               <div className="flex items-center gap-2 text-xs text-gray-400 font-alexandria">
                 <MapPin className="h-3.5 w-3.5" />
-                <span>{isAr ? "القاهرة، جمهورية مصر العربية 🇪🇬" : "Cairo, Arab Republic of Egypt 🇪🇬"}</span>
+                <span>{isAr ? "الإسكندرية، جمهورية مصر العربية 🇪🇬" : "Alexandria, Arab Republic of Egypt 🇪🇬"}</span>
               </div>
               <div className="flex items-center gap-3 mt-4">
                 <a href="https://aquadic.com" target="_blank" rel="noopener noreferrer"

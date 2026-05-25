@@ -17,7 +17,7 @@ export default function Footer({ lang, t, setCurrentPage }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 border-b border-gray-200 dark:border-gray-800 pb-12 mb-10">
           
           {/* Logo & description column */}
-          <div className="md:col-span-4 flex flex-col items-start gap-4">
+          <div className="md:col-span-3 flex flex-col items-start gap-4">
             <a href="#home" onClick={(e) => navigate(e, "home", "")} className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-brand-purple to-brand-green text-white">
                 <MessageSquare className="h-5 w-5" />
@@ -54,27 +54,22 @@ export default function Footer({ lang, t, setCurrentPage }) {
             </a>
           </div>
 
-          {/* CloudWA Portals Column */}
+          {/* Aquadic Products Column */}
           <div className="md:col-span-2 flex flex-col items-start gap-3 text-start">
             <h4 className="text-sm font-bold font-alexandria text-gray-800 dark:text-white uppercase tracking-wider">
-              {isAr ? "بوابات الخدمة" : "CloudWA Portals"}
+              {t.footer.productsTitle || (isAr ? "منتجات أكوادك" : "Aquadic Products")}
             </h4>
-            <a
-              href="https://cloudwa.net/console/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
-            >
-              {isAr ? "بوابة الويب الاقتصادية" : "Web Budget Portal"}
-            </a>
-            <a
-              href="https://calendly.com/aquadicsoftwares/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
-            >
-              {isAr ? "بوابة الـ API الرسمية" : "Official Meta Portal"}
-            </a>
+            {(t.footer.products || []).map((product, idx) => (
+              <a
+                key={idx}
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-brand-violet transition-colors font-alexandria"
+              >
+                {product.name}
+              </a>
+            ))}
           </div>
 
           {/* Legal Column */}
@@ -97,7 +92,7 @@ export default function Footer({ lang, t, setCurrentPage }) {
           </div>
 
           {/* Verification Badges Column */}
-          <div className="md:col-span-2 flex flex-col items-start gap-4">
+          <div className="md:col-span-3 flex flex-col items-start gap-4">
             <h4 className="text-sm font-bold font-alexandria text-gray-800 dark:text-white uppercase tracking-wider">
               {isAr ? "الاعتمادات" : "Credentials"}
             </h4>

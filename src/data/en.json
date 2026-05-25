@@ -13,14 +13,14 @@
     "aquadicBadge": "Backed by Aquadic",
     "titlePre": "Getting Banned?",
     "titleOfficial": "Official WhatsApp API",
-    "titleUnofficial": "Web Automation API",
+    "titleUnofficial": "Budget Web Gateway",
     "titlePost": "One Portal. Two Ways to Scale.",
     "subText": "CloudWA bridges the gap. Connect officially via Meta's secure cloud API with 0% message markup, or use our high-speed, cost-effective web automation gateway.",
     "adviserBtn": "💡 Not sure? Take our 10-second pathfinder test",
     "officialBtn": "Go Official (Safe)",
     "officialAudience": "Best for registered brands & large volume (100% ban-free)",
-    "unofficialBtn": "Go Web API (No Meta Fees)",
-    "unofficialAudience": "Best for individuals, startups & developers (No documents)",
+    "unofficialBtn": "Budget Web Gateway (No Meta Fees)",
+    "unofficialAudience": "Best for startups, individuals & developers (Fixed price, no documents)",
     "stats": {
       "agents": "Simultaneous Agents",
       "contacts": "Contacts Database",
@@ -71,7 +71,7 @@
       ]
     },
     "unofficial": {
-      "title": "Web Automation API (Budget-Friendly)",
+      "title": "Budget Web Gateway",
       "desc": "Best for startups, local stores, developers, and low-budget transaction alerts.",
       "bullets": [
         "Scan QR Code & connect instantly",
@@ -121,10 +121,10 @@
         "btn": "Start 7-Day Free Trial"
       },
       "unofficial": {
-        "title": "Web Automation API (Budget-Friendly)",
+        "title": "Budget Web Gateway",
         "badge": "Instant Setup & Fixed Budget",
-        "desc": "For quick setups, individual sellers, or businesses preferring a flat yearly fee without per-message Meta charges, our QR Web Automation gateway fits perfectly.",
-        "btn": "Try Web Gateway"
+        "desc": "For quick setups, individual sellers, or businesses preferring a flat yearly fee without per-message Meta charges, our Budget Web Gateway fits perfectly.",
+        "btn": "Try Budget Web Gateway"
       }
     },
     "nextBtn": "Next Question",
@@ -159,7 +159,7 @@
     "title": "Transparent Plans for Both Paths",
     "subtitle": "Choose the package that aligns with your scale and business requirements.",
     "officialTab": "Official API (Meta)",
-    "unofficialTab": "Web Automation API",
+    "unofficialTab": "Budget Web Gateway",
     "perMonth": "/ month",
     "perYear": "/ year",
     "freeTrial": "Start 7-Day Free Trial",
@@ -181,7 +181,7 @@
     "title": "Built For Developers",
     "subtitle": "Integrate WhatsApp into your tech stack within minutes. Switch between Official and Web Automation endpoints.",
     "officialEndpoint": "Official API Endpoint",
-    "unofficialEndpoint": "Web Automation API",
+    "unofficialEndpoint": "Budget Web Gateway API",
     "copySuccess": "Copied to clipboard!",
     "copyBtn": "Copy"
   },
